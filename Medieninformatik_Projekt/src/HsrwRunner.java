@@ -2,8 +2,8 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class HsrwRunner extends PApplet {
-	// Git Test blaslblbala tim war hier
-	String folderPath = "C:\\Users\\Marwin\\SkyDrive\\HSRW\\Strukturierte und Objektorientierte Programmierung\\Workspace\\Medieninformatik_Projekt\\src\\";
+	// :)
+	String imagePath = "\\";
 	PImage backgroundImg;
 	PImage playerImg;
 
@@ -12,8 +12,8 @@ public class HsrwRunner extends PApplet {
 
 	public void setup() {
 		size(720, 480, P3D);
-		backgroundImg = loadImage(folderPath + "hsrw.png");
-		playerImg = loadImage(folderPath + "player.png");
+		backgroundImg = loadImage(imagePath + "hsrw.png");
+		playerImg = loadImage(imagePath + "player.png");
 		textureMode(NORMAL);
 	}
 
@@ -83,9 +83,9 @@ public class HsrwRunner extends PApplet {
 		}
 
 		if (delay < 5) {
-			playerImg = loadImage(folderPath + "player.png");
+			playerImg = loadImage(imagePath + "player.png");
 		} else {
-			playerImg = loadImage(folderPath + "player_walking.png");
+			playerImg = loadImage(imagePath + "player_walking.png");
 		}
 	}
 
