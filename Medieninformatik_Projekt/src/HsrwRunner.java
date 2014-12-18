@@ -2,7 +2,7 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class HsrwRunner extends PApplet {
-	// Git Test blaslblbala tim war hier
+	// :)
 	String folderPath = "C:\\Users\\Marwin\\SkyDrive\\HSRW\\Strukturierte und Objektorientierte Programmierung\\Workspace\\Medieninformatik_Projekt\\src\\";
 	PImage backgroundImg;
 	PImage playerImg;
