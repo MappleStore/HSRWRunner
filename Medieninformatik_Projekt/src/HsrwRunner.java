@@ -2,13 +2,14 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class HsrwRunner extends PApplet {
-	// :)
+	// :) Marwin hier
 	String imagePath = "\\";
 	PImage backgroundImg;
 	PImage playerImg;
 
 	int delay = 0;
 	int backgroundX = 0;
+	float playerY = 0;
 
 	public void setup() {
 		size(720, 480, P3D);
@@ -19,7 +20,7 @@ public class HsrwRunner extends PApplet {
 
 	public void draw() {
 		background(255);
-
+		frameRate(30);
 		// Hintergrundbild zeichnen
 		drawEndlessBackground();
 		drawPlayer();
@@ -31,14 +32,22 @@ public class HsrwRunner extends PApplet {
 			if (keyCode == RIGHT) {
 				// Bewegung Hintergrundbild
 				backgroundX = backgroundX - 1;
+				delay++;
 			}
-			
+
 			if (keyCode == LEFT) {
 				// Bewegung Hintergrundbild
 				backgroundX = backgroundX + 1;
+				delay++;
 			}
-			
-			delay++;
+
+			if (keyCode == UP) {
+				frameRate(1);
+				playerY -= 30;
+				drawPlayer();
+				playerY = 0;
+				drawPlayer();
+			}
 		}
 	}
 
@@ -72,10 +81,10 @@ public class HsrwRunner extends PApplet {
 		noStroke();
 		beginShape(QUADS);
 		texture(playerImg);
-		vertex(0 + x, 0 + y, 2, 0, 0);
-		vertex(32 + x, 0 + y, 2, 1, 0);
-		vertex(32 + x, 60 + y, 2, 1, 1);
-		vertex(0 + x, 60 + y, 2, 0, 1);
+		vertex(0 + x, playerY + y, 2, 0, 0);
+		vertex(32 + x, playerY + y, 2, 1, 0);
+		vertex(32 + x, playerY + 60 + y, 2, 1, 1);
+		vertex(0 + x, playerY + 60 + y, 2, 0, 1);
 		endShape();
 
 		if (delay >= 10) {
