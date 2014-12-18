@@ -2,7 +2,7 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class HsrwRunner extends PApplet {
-	// :) Marwin hier
+	// :) Marwin war hier
 	String imagePath = "\\";
 	PImage backgroundImg;
 	PImage playerImg;
