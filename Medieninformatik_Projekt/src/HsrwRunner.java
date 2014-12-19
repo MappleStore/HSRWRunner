@@ -7,12 +7,15 @@ public class HsrwRunner extends PApplet {
 	PImage backgroundImg;
 	PImage playerImg;
 
+	boolean[] keys;
 	int delay = 0;
 	int backgroundX = 0;
 	float playerY = 0;
+	boolean jumped = false;
 
 	public void setup() {
 		size(720, 480, P3D);
+		keys = new boolean[4];
 		backgroundImg = loadImage(imagePath + "hsrw.png");
 		playerImg = loadImage(imagePath + "player.png");
 		textureMode(NORMAL);
@@ -20,34 +23,60 @@ public class HsrwRunner extends PApplet {
 
 	public void draw() {
 		background(255);
-		frameRate(30);
+		frameRate(60);
 		// Hintergrundbild zeichnen
 		drawEndlessBackground();
+
+		if (keys[0]) {
+			// Bewegung Hintergrundbild
+			backgroundX = backgroundX - 2;
+			delay++;
+		}
+
+		if (keys[1]) {
+			// Bewegung Hintergrundbild
+			backgroundX = backgroundX + 2;
+			delay++;
+		}
+
+		if (keys[2]) {
+			// jump only if player at the ground
+			if (playerY == 0) {
+				jumped = true;
+			}
+		}
+
 		drawPlayer();
 
 	}
 
 	public void keyPressed() {
-		if (key == CODED) {
-			if (keyCode == RIGHT) {
-				// Bewegung Hintergrundbild
-				backgroundX = backgroundX - 1;
-				delay++;
-			}
+		if (keyCode == RIGHT) {
+			keys[0] = true;
+		}
+		if (keyCode == LEFT) {
+			keys[1] = true;
+		}
+		if (keyCode == UP) {
+			keys[2] = true;
+		}
+		if (keyCode == DOWN) {
+			keys[3] = true;
+		}
+	}
 
-			if (keyCode == LEFT) {
-				// Bewegung Hintergrundbild
-				backgroundX = backgroundX + 1;
-				delay++;
-			}
-
-			if (keyCode == UP) {
-				frameRate(1);
-				playerY -= 30;
-				drawPlayer();
-				playerY = 0;
-				drawPlayer();
-			}
+	public void keyReleased() {
+		if (keyCode == RIGHT) {
+			keys[0] = false;
+		}
+		if (keyCode == LEFT) {
+			keys[1] = false;
+		}
+		if (keyCode == UP) {
+			keys[2] = false;
+		}
+		if (keyCode == DOWN) {
+			keys[3] = false;
 		}
 	}
 
@@ -78,6 +107,31 @@ public class HsrwRunner extends PApplet {
 	public void drawPlayer() {
 		int x = 80;
 		int y = 380;
+
+		// Set X Y:
+
+		// Slow down Image-Change
+		if (delay >= 10) {
+			delay = 0;
+		}
+
+		// Player Jumped?
+		if (jumped) {
+			// Increase height to 30px
+			if (playerY > -40) {
+				playerY -= 4;
+			}
+
+			// Jump at heighest point
+			if (playerY <= -40) {
+				jumped = false;
+			}
+		} else if (playerY < 0) {
+			// Fall down
+			playerY += 4;
+		}
+
+		// Draw Image
 		noStroke();
 		beginShape(QUADS);
 		texture(playerImg);
@@ -87,15 +141,12 @@ public class HsrwRunner extends PApplet {
 		vertex(0 + x, playerY + 60 + y, 2, 0, 1);
 		endShape();
 
-		if (delay >= 10) {
-			delay = 0;
-		}
-
 		if (delay < 5) {
 			playerImg = loadImage(imagePath + "player.png");
 		} else {
 			playerImg = loadImage(imagePath + "player_walking.png");
 		}
+
 	}
 
 }
