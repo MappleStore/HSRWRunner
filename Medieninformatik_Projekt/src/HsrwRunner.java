@@ -2,54 +2,71 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class HsrwRunner extends PApplet {
-	// Hallo
-	String imagePath = "\\";
+	String imagePath = "..\\..\\media\\images\\";
 	PImage backgroundImg;
 	PImage playerImg;
 
-	boolean[] keys;
-	int delay = 0;
-	int backgroundX = 0;
-	float playerY = 0;
-	boolean jumped = false;
+	boolean[] keys; // Tasten-Array
+	int delay = 0; // Verzögerung für Spielfigur-Bildwechsel
+	int backgroundX = 0; // Bewegungsvariable vom Hintergrund
 
+	// Spielfigur Koordinaten und Zustände
+	int playerY = 0;
+	int playerX = 80;
+	boolean jumped = false;
+	final int minPixelsPlayer = 80; // Minimal X-Koordinate beim Laufen
+	final int maxPixelsPlayer = 340; // Maximal X-Koordinate beim Laufen
+
+	// Spiel vorbereiten
 	public void setup() {
 		size(720, 480, P3D);
 		keys = new boolean[4];
 		backgroundImg = loadImage(imagePath + "hsrw.png");
-		playerImg = loadImage(imagePath + "player.png");
 		textureMode(NORMAL);
 	}
 
 	public void draw() {
 		background(255);
 		frameRate(60);
-		// Hintergrundbild zeichnen
-		drawEndlessBackground();
 
-		if (keys[0]) {
+		// Hintergrundbild zeichnen
+		drawBackground();
+
+		// Vorwärtsbewegung
+		if (keys[0] && playerX == maxPixelsPlayer) {
 			// Bewegung Hintergrundbild
 			backgroundX = backgroundX - 2;
 			delay++;
-		}
-
-		if (keys[1]) {
-			// Bewegung Hintergrundbild
-			backgroundX = backgroundX + 2;
+		} else if (keys[0] && playerX < maxPixelsPlayer) {
+			// Bewegung Spieler statt Hintergrundbild
+			playerX = playerX + 2;
 			delay++;
 		}
 
+		// Rückwärtsbewegung
+		if (keys[1] && playerX == minPixelsPlayer) {
+			// Bewegung Hintergrundbild
+			// backgroundX = backgroundX + 2; nicht mehr vorgesehen
+			delay++;
+		} else if (keys[1] && playerX > minPixelsPlayer) {
+			// Bewegung Spieler statt Hintergrundbild
+			playerX = playerX - 2;
+			delay++;
+		}
+
+		// Springbewegung
 		if (keys[2]) {
-			// jump only if player at the ground
+			// Nur springen wenn die Spielfigur auf dem "Boden" steht
 			if (playerY == 0) {
 				jumped = true;
 			}
 		}
 
+		// Spielfigur zeichnen
 		drawPlayer();
-
 	}
 
+	// Gedrückte Tasten in Array setzen
 	public void keyPressed() {
 		if (keyCode == RIGHT) {
 			keys[0] = true;
@@ -65,6 +82,7 @@ public class HsrwRunner extends PApplet {
 		}
 	}
 
+	// Nicht mehr gedrückte Tasten in Array setzen
 	public void keyReleased() {
 		if (keyCode == RIGHT) {
 			keys[0] = false;
@@ -80,7 +98,7 @@ public class HsrwRunner extends PApplet {
 		}
 	}
 
-	public void drawEndlessBackground() {
+	public void drawBackground() {
 		noStroke();
 
 		beginShape(QUADS);
@@ -91,6 +109,7 @@ public class HsrwRunner extends PApplet {
 		vertex(backgroundX, 480, 1, 0, 1);
 		endShape();
 
+		// Endloser Hintergrund nach Leveldesign überflüssig 
 		beginShape(QUADS);
 		texture(backgroundImg);
 		vertex(backgroundX + 720, 0, 1, 0, 0);
@@ -102,36 +121,35 @@ public class HsrwRunner extends PApplet {
 		if (backgroundX < -720) {
 			backgroundX = 0;
 		}
+		// ...
 	}
 
 	public void drawPlayer() {
-		int x = 80;
+		int x = playerX;
 		int y = 380;
 
-		// Set X Y:
-
-		// Slow down Image-Change
+		// Spielfigurbildwechsel verzögern
 		if (delay >= 10) {
 			delay = 0;
 		}
 
-		// Player Jumped?
+		// Springt der Spieler?
 		if (jumped) {
-			// Increase height to 30px
+			// erhöhe die Spielfigur bei jedem draw()
 			if (playerY > -40) {
 				playerY -= 4;
 			}
 
-			// Jump at heighest point
+			// am höchsten Punkt?
 			if (playerY <= -40) {
-				jumped = false;
+				jumped = false; // Sprung beenden
 			}
 		} else if (playerY < 0) {
-			// Fall down
+			// Spielfigur wieder absenken bei jedem draw()
 			playerY += 4;
 		}
 
-		// Draw Image
+		// Spielfigurbild zeichnen
 		noStroke();
 		beginShape(QUADS);
 		texture(playerImg);
@@ -141,6 +159,7 @@ public class HsrwRunner extends PApplet {
 		vertex(0 + x, playerY + 60 + y, 2, 0, 1);
 		endShape();
 
+		// Verzögerung anwenden
 		if (delay < 5) {
 			playerImg = loadImage(imagePath + "player.png");
 		} else {
