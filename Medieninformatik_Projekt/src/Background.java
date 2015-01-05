@@ -1,7 +1,7 @@
 import processing.core.PImage;
 
 public class Background {
-	Game g;
+	Game game;
 	PImage backgroundImage;
 	public int x;
 	public int y;
@@ -10,9 +10,9 @@ public class Background {
 		// default
 	}
 
-	public Background(Game g, String path) {
-		this.g = g;
-		this.backgroundImage = this.g.parent.loadImage(path);
+	public Background(Game game, String path) {
+		this.game = game;
+		this.backgroundImage = this.game.app.loadImage(path);
 	}
 
 	public void moveBackground(int x, int y) {
@@ -21,26 +21,26 @@ public class Background {
 	}
 
 	public void drawBackground() {
-		this.g.parent.noStroke();
+		this.game.app.noStroke();
 		
-		this.g.parent.beginShape(this.g.parent.QUADS);
-		this.g.parent.texture(this.backgroundImage);
-		this.g.parent.vertex(this.x, this.y + 0, 1, 0, 0);
-		this.g.parent.vertex(this.x + g.WINDOW_WIDTH, this.y + 0, 1, 1, 0);
-		this.g.parent.vertex(this.x + g.WINDOW_WIDTH, this.y + g.WINDOW_HEIGHT, 1, 1, 1);
-		this.g.parent.vertex(this.x, this.y + g.WINDOW_HEIGHT, 1, 0, 1);
-		this.g.parent.endShape();
+		this.game.app.beginShape(this.game.app.QUADS);
+		this.game.app.texture(this.backgroundImage);
+		this.game.app.vertex(this.x, this.y + 0, 1, 0, 0);
+		this.game.app.vertex(this.x + game.WINDOW_WIDTH, this.y + 0, 1, 1, 0);
+		this.game.app.vertex(this.x + game.WINDOW_WIDTH, this.y + game.WINDOW_HEIGHT, 1, 1, 1);
+		this.game.app.vertex(this.x, this.y + game.WINDOW_HEIGHT, 1, 0, 1);
+		this.game.app.endShape();
 
 		// Endloser Hintergrund 
-		this.g.parent.beginShape(this.g.parent.QUADS);
-		this.g.parent.texture(this.backgroundImage);
-		this.g.parent.vertex(this.x + g.WINDOW_WIDTH, this.y + 0, 1, 0, 0);
-		this.g.parent.vertex(this.x + g.WINDOW_WIDTH * 2, this.y + 0, 1, 1, 0);
-		this.g.parent.vertex(this.x + g.WINDOW_WIDTH * 2, this.y + g.WINDOW_HEIGHT, 1, 1, 1);
-		this.g.parent.vertex(this.x + g.WINDOW_WIDTH, this.y + g.WINDOW_HEIGHT, 1, 0, 1);
-		this.g.parent.endShape();
+		this.game.app.beginShape(this.game.app.QUADS);
+		this.game.app.texture(this.backgroundImage);
+		this.game.app.vertex(this.x + game.WINDOW_WIDTH, this.y + 0, 1, 0, 0);
+		this.game.app.vertex(this.x + game.WINDOW_WIDTH * 2, this.y + 0, 1, 1, 0);
+		this.game.app.vertex(this.x + game.WINDOW_WIDTH * 2, this.y + game.WINDOW_HEIGHT, 1, 1, 1);
+		this.game.app.vertex(this.x + game.WINDOW_WIDTH, this.y + game.WINDOW_HEIGHT, 1, 0, 1);
+		this.game.app.endShape();
 
-		if (this.x < g.WINDOW_WIDTH * (-1)) {
+		if (this.x < game.WINDOW_WIDTH * (-1)) {
 			this.x = 0;
 		}
 		// ...
