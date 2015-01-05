@@ -2,27 +2,27 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class HsrwRunner extends PApplet {
-	Game hsrwRunner = null;
+	Game game = null;
 
 	public void setup() {	
-		hsrwRunner = new Game(this);
-		size(hsrwRunner.WINDOW_WIDTH, hsrwRunner.WINDOW_HEIGHT, P3D);
+		this.game = new Game(this);
+		size(game.WINDOW_WIDTH, game.WINDOW_HEIGHT, P3D);
 		textureMode(NORMAL);
 		
-		hsrwRunner.loadLevel();
+		this.game.loadLevel();
 	}
 
 	public void draw() {
 		frameRate(60);
 		background(255);
-		hsrwRunner.level1.drawLevel();
+		this.game.hsrwLvl.drawLevel();
 	}
 	
 	public void keyPressed() {
-		hsrwRunner.keyPressed();
+		this.game.keyPressed();
 	}
 
 	public void keyReleased() {
-		hsrwRunner.keyReleased();
+		this.game.keyReleased();
 	}
 }
