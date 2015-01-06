@@ -4,8 +4,9 @@ import processing.core.PImage;
 public class Player extends PApplet {
 	Game game;
 
-	final int JUMP_HEIGHT = 40;
-	final int MIN_X = 80; // Minimal X-Koordinate beim Laufen
+	final int JUMP_HEIGHT = 60;
+	final int SPEED = 4;
+	final int MIN_X = 0; // Minimal X-Koordinate beim Laufen
 	final int MAX_X = 340; // Maximal X-Koordinate beim Laufen
 	final int PLAYER_HEIGHT = 60;
 	final int PLAYER_WIDTH = 42;
@@ -19,6 +20,7 @@ public class Player extends PApplet {
 	int x;
 	int delay = 0;
 	boolean isJumped = false;
+	int jumpedY = 0;
 	PImage playerImage;
 
 	public Player() {
@@ -43,29 +45,6 @@ public class Player extends PApplet {
 			this.delay = 0;
 		}
 
-		// Springt der Spieler?
-		if (this.isJumped) {
-			// erhöhe die Spielfigur bei jedem draw()
-			if ((this.y + this.JUMP_HEIGHT) > game.GROUND_LEVEL) {
-				this.y -= game.GRAVITY;
-			}
-
-			// am höchsten Punkt?
-			if (this.y + this.JUMP_HEIGHT <= game.GROUND_LEVEL) {
-				isJumped = false; // Sprung beenden
-			}
-		} else if (this.y < game.GROUND_LEVEL && this.states[2] == false) {
-			// Spielfigur wieder absenken bei jedem draw()
-			this.y += game.GRAVITY;
-		} else if (this.y < game.GROUND_LEVEL && this.states[2]) {
-			this.y = game.GROUND_LEVEL - this.JUMP_HEIGHT;
-		}
-		
-		// Sprung notfalls beenden
-		if (this.y >= game.GROUND_LEVEL) {
-			this.isJumped = false;
-		}
-
 		// Spielfigurbild zeichnen:
 		// Stehen
 		if (this.states[3] && this.isJumped == false) {
@@ -88,6 +67,7 @@ public class Player extends PApplet {
 			}
 		}
 
+		// Vorwärts
 		if (this.states[4] == false) {
 			this.game.app.noStroke();
 			this.game.app.beginShape(this.game.app.QUADS);
@@ -98,7 +78,7 @@ public class Player extends PApplet {
 			this.game.app.vertex(this.x + this.PLAYER_WIDTH, this.y, 2, 1, 1);
 			this.game.app.vertex(this.x, this.y, 2, 0, 1);
 			this.game.app.endShape();
-		} else {
+		} else { // Rückwärts (gespiegelt)
 			this.game.app.noStroke();
 			this.game.app.beginShape(this.game.app.QUADS);
 			this.game.app.texture(playerImage);

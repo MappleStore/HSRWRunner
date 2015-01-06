@@ -19,14 +19,18 @@ public class Level {
 		this.levelBackground = new Background(game, game.DEFAULT_IMAGEPATH
 				+ "hsrw.png");
 		this.collision = new Collision(this.game);
-		this.hero = new Player(game, 80, this.game.GROUND_LEVEL);
+		this.hero = new Player(game, 80, this.game.GROUND_LEVEL - 26);
 
 		// Objekte :)
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "poop.png", 35, 36, 300, this.game.GROUND_LEVEL, 2));
+				+ "ape.png", 35, 36, 300, this.game.GROUND_LEVEL, 2));
 
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "poop.png", 35, 36, 380, this.game.GROUND_LEVEL, 2));
+				+ "alien.png", 47, 49, 565, this.game.GROUND_LEVEL, 2));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "alien.png", 47, 49, 614, this.game.GROUND_LEVEL, 2));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "alien.png", 47, 49, 588, this.game.GROUND_LEVEL - 47, 2));
 
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "poop.png", 35, 36, 820, this.game.GROUND_LEVEL, 2));
@@ -52,50 +56,80 @@ public class Level {
 
 		// Vorwärtsbewegung
 		if (this.game.keyboard[0] && this.hero.states[0] == false
-				&& this.hero.x == this.hero.MAX_X) {
+				&& this.hero.x >= this.hero.MAX_X) {
 			// Bewegung Hintergrund
-			this.levelBackground.moveBackground(-2, 0);
+			this.levelBackground.moveBackground(this.hero.SPEED * (-1), 0);
 
 			// Objekte mitbewegen
 			for (LvlObject lvlObject : this.lvlObjects) {
-				lvlObject.move(-2, 0);
+				lvlObject.move(this.hero.SPEED * (-1), 0);
 			}
-			
+
 			this.hero.states[4] = false;
 		} else if (this.game.keyboard[0] && this.hero.states[0] == false
 				&& this.hero.x < this.hero.MAX_X) {
 			// Bewegung Spieler statt Hintergrundbild
-			this.hero.movePlayer(2, 0);
+			this.hero.movePlayer(this.hero.SPEED, 0);
 			this.hero.states[4] = false;
+		} else if (this.hero.states[0] && this.hero.isJumped == false) {
+			// Antihaftung am Objektrand bei Kollision
+			this.hero.movePlayer(-1, 0);
 		}
 
 		// Rückwärtsbewegung
 		if (this.game.keyboard[1] && this.hero.states[1] == false
 				&& this.hero.x == this.hero.MIN_X) {
 			this.hero.states[4] = true;
-			// Kein Rücklauf des Hintergrundes
-			// this.levelBackground.moveBackground(2, 0);
 		} else if (this.game.keyboard[1] && this.hero.states[1] == false
 				&& this.hero.x > this.hero.MIN_X) {
 			// Bewegung Spieler statt Hintergrundbild
-			this.hero.movePlayer(-2, 0);
+			this.hero.movePlayer(this.hero.SPEED * (-1), 0);
 			this.hero.states[4] = true;
+		} else if (this.hero.states[1] && this.hero.isJumped == false) {
+			// Antihaftung am Objektrand bei Kollision
+			this.hero.movePlayer(1, 0);
 		}
-		
+
 		// Delay
-		if (this.hero.isJumped == false && (this.game.keyboard[0] || this.game.keyboard[1])) {
+		if (this.hero.isJumped == false
+				&& (this.game.keyboard[0] || this.game.keyboard[1])) {
 			this.hero.states[3] = false;
-			this.hero.delay++;		
+			this.hero.delay++;
 		} else {
 			this.hero.states[3] = true;
 		}
 
 		// Springbewegung
 		if (this.game.keyboard[2]) {
-			// Nur springen wenn die Spielfigur auf dem "Boden" steht
-			if (this.hero.y == this.game.GROUND_LEVEL) {
+			// Nur springen wenn die Spielfigur auf dem "Boden" bzw. "Objekt"
+			// steht
+			if (this.hero.y == this.game.GROUND_LEVEL || this.hero.states[2]) {
 				this.hero.isJumped = true;
 			}
+		}
+
+		// Springt der Spieler?
+		if (this.hero.isJumped) {
+			// erhöhe die Spielfigur bei jedem draw()
+			this.hero.jumpedY += game.GRAVITY;
+			if (this.hero.jumpedY % this.hero.JUMP_HEIGHT > 0) {
+				this.hero.y -= game.GRAVITY;
+			}
+
+			// am höchsten Punkt?
+			if (this.hero.jumpedY % this.hero.JUMP_HEIGHT == 0) {
+				this.hero.isJumped = false; // Sprung beenden
+			}
+		} else if (this.hero.y < game.GROUND_LEVEL
+				&& this.hero.states[2] == false) {
+			// Spielfigur wieder absenken
+			if (Math.abs(this.hero.y - this.game.GROUND_LEVEL) < game.GRAVITY) {
+				this.hero.y = this.game.GROUND_LEVEL;
+			} else {
+				this.hero.y += game.GRAVITY;
+			}
+
+			this.hero.jumpedY = 0;
 		}
 	}
 }
