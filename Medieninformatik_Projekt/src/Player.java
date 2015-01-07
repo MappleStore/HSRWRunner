@@ -22,6 +22,7 @@ public class Player extends PApplet {
 	boolean isJumped = false;
 	int jumpedY = 0;
 	PImage playerImage;
+	int missionCounter = 0;
 
 	public Player() {
 

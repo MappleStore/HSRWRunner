@@ -8,7 +8,9 @@ public class LvlObject {
 	int x;
 	int z;
 	boolean visible;
+	boolean collided;
 
+	Mission mission;
 	PImage texture;
 
 	public LvlObject(Game game, String texturePath, int height, int width,
@@ -21,6 +23,12 @@ public class LvlObject {
 		this.y = y;
 		this.z = z;
 		this.visible = true;
+	}
+	
+	public LvlObject(Game game, String texturePath, int height, int width,
+			int x, int y, int z, Mission mission) {
+		this(game, texturePath, height, width, x, y, z);
+		this.mission = mission;
 	}
 
 	public void draw() {
