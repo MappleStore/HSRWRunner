@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-
 import processing.core.PImage;
 
 public class Mission {
@@ -17,10 +16,12 @@ public class Mission {
 	int answerIndex;
 	final int CREDITPOINTS = 5;
 	final int FONTSIZE = 16;
+	public int rightAnswer;
 
-	public Mission(Game game, String texturePath, int height, int width, int x,
-			int y, int z, String missionText, String questionText,
-			ArrayList<String> answers, int answerIndex) {
+	public Mission(Game game, String texturePath, int height,
+			int width, int x, int y, int z, String missionText,
+			String questionText, ArrayList<String> answers, int answerIndex,
+			int rightAnswer) {
 		this.game = game;
 		this.isPlayed = false;
 		this.missionImage = this.game.app.loadImage(game.DEFAULT_IMAGEPATH
@@ -35,6 +36,7 @@ public class Mission {
 		this.questionText = questionText;
 		this.answers = answers;
 		this.answerIndex = answerIndex;
+		this.rightAnswer = rightAnswer;
 	}
 
 	public void drawMission() {
@@ -62,6 +64,7 @@ public class Mission {
 			this.game.app.text(answer, this.x + 10, this.y + pixelRow, this.z);
 			pixelRow += this.FONTSIZE * 1.2;
 		}
+
 	}
 
 }

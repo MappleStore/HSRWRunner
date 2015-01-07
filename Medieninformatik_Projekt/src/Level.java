@@ -8,6 +8,8 @@ public class Level {
 	Background levelBackground;
 	public int creditpoints;
 	public double time;
+	public boolean inMission;
+	Mission tmpMission;
 
 	public Level() {
 		// default
@@ -21,7 +23,7 @@ public class Level {
 		this.collision = new Collision(this.game);
 		this.hero = new Player(game, 80, this.game.GROUND_LEVEL - 26);
 
-		// Objekte :)
+		// Objekte
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "ape.png", 35, 36, 300, this.game.GROUND_LEVEL, 2));
 
@@ -39,41 +41,70 @@ public class Level {
 
 		// Mission 1
 		ArrayList<String> tmpAnswers = new ArrayList<String>();
-		tmpAnswers.add("Antwort1");
-		tmpAnswers.add("Antwort2");
-		String tmpMissionText = "Hallo.";
-		String tmpQuestion = "Hallo?";
-		Mission tmpMission = new Mission(game, "white.png", 200, 300, 100, 100,
-				3, tmpMissionText, tmpQuestion, tmpAnswers, 0);
+		tmpAnswers.add("[SHIFT] Schwarz");
+		tmpAnswers.add("[CTRL] Blau");
+		String tmpMissionText = "Hallo, mein Name ist Tim...";
+		String tmpQuestion = "Was ist meine Lieblingsfarbe?";
+		tmpMission = new Mission(game, "white.png", 200, 300, 100, 100, 3,
+				tmpMissionText, tmpQuestion, tmpAnswers, 0, 2);
 
 		lvlObjects
 				.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 						+ "ape.png", 35, 36, 200, this.game.GROUND_LEVEL, 2,
 						tmpMission));
+
 	}
 
 	public void drawLevel() {
 		this.game.app.background(255);
 		this.levelBackground.drawBackground();
 		this.hero.drawPlayer();
-		
+
 		this.game.app.beginShape();
 		this.game.app.textSize(24);
 		this.game.app.text("HSRW Runner", 10, 34, 2);
-		this.game.app.fill(255,255,255);
+		this.game.app.text("CreditPoints: " + this.game.sumCreditPoints, 500,
+				34, 2);
+		this.game.app.fill(255, 255, 255);
 		this.game.app.endShape();
 
-		boolean inMission = false;
+		inMission = false;
 
 		// Objekte zeichnen
 		for (LvlObject lvlObject : this.lvlObjects) {
 			lvlObject.draw();
 
 			// Mission prüfen
-			if (this.hero.states[5] == true && lvlObject.collided) {
+			if (this.hero.states[5] == true && lvlObject.collided
+					&& this.tmpMission.isPlayed != true) {
 				lvlObject.mission.drawMission();
 				inMission = true;
 			}
+		}
+
+		// Funktion für in Mission check welche Taste gedrückt wurde, bei
+		// richtiger Antwort creditpoints addieren
+		if (inMission) {
+			if (this.game.keyboard[4] ^ this.game.keyboard[5]
+					^ this.game.keyboard[6] ^ this.game.keyboard[7]) {
+				inMission = false;
+				if (this.game.keyboard[4] && this.tmpMission.rightAnswer == 1) {
+					this.game.sumCreditPoints += this.tmpMission.CREDITPOINTS;
+				} else if (this.game.keyboard[5]
+						&& this.tmpMission.rightAnswer == 2) {
+					this.game.sumCreditPoints += this.tmpMission.CREDITPOINTS;
+				}
+
+				this.hero.x += 70; // noch versuchen variabel zu bekommen
+									// (missionsobjekt breite anstatt 70)
+				this.tmpMission.isPlayed = true;
+			}
+
+		}
+
+		// Check wieviel CP's man hat
+		if (this.game.keyboard[6]) {
+			System.out.println("CreditPoints = " + this.game.sumCreditPoints);
 		}
 
 		// Funktion für Bewegungen im Level
