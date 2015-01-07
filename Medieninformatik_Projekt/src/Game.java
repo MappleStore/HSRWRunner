@@ -3,7 +3,7 @@ import processing.core.PApplet;
 public class Game {
 	PApplet app = null;
 	final String DEFAULT_IMAGEPATH = "..\\media\\images\\";
-	final int GRAVITY = 6;
+	final int GRAVITY = 4;
 	final int WINDOW_HEIGHT = 480;
 	final int WINDOW_WIDTH = 720;
 	final int GROUND_LEVEL = 428;
