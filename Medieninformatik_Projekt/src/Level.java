@@ -21,6 +21,7 @@ public class Level {
 	// Level starten
 	public Level(Game game) {
 		this.game = game;
+		this.logoImage = this.game.app.loadImage(game.DEFAULT_IMAGEPATH + "logo.png");
 		this.levelShadowBackground = new Background(game, game.DEFAULT_IMAGEPATH
 				+ "shadowbg.png");
 		this.levelBackground = new Background(game, game.DEFAULT_IMAGEPATH
@@ -71,18 +72,20 @@ public class Level {
 		this.levelShadowBackground.drawBackground();
 		this.levelBackground.drawBackground();
 		this.hero.drawPlayer();
-	//	this.logoImage = this.game.app.loadImage(game.DEFAULT_IMAGEPATH + "logo.png");
+		
+		this.game.app.noStroke();
 		this.game.app.beginShape();
 		this.game.app.texture(logoImage);
-		this.game.app.vertex(10, 10, 3, 0, 0);
-		this.game.app.vertex(300, 10, 3, 1, 0);
-		this.game.app.vertex(300, 100, 3, 1, 1);
-		this.game.app.vertex(10, 100, 3, 0, 1);
+		this.game.app.vertex(0+15, 0+15, 3, 0, 0);
+		this.game.app.vertex(168+15, 0+15, 3, 1, 0);
+		this.game.app.vertex(168+15, 30+15, 3, 1, 1);
+		this.game.app.vertex(0+15, 30+15, 3, 0, 1);
+		this.game.app.endShape();
+		
 		this.game.app.textSize(24);
 		this.game.app.text("CreditPoints: " + this.game.sumCreditPoints, 500,
 				34, 2);
 		this.game.app.fill(0, 0, 0);
-		this.game.app.endShape();
 
 		inMission = false;
 

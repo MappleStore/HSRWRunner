@@ -104,17 +104,6 @@ public class Mission {
 					this.isSolved = true;
 				}
 
-				// Spieler vorbewegen
-				// for (LvlObject lvlObject : this.game.hsrwLvl.lvlObjects) {
-				// if (lvlObject.mission != null) {
-				// if (lvlObject.collided) {
-				// this.game.hsrwLvl.hero.movePlayer(
-				// this.game.hsrwLvl.hero.PLAYER_WIDTH
-				// + lvlObject.width, 0);
-				// }
-				// }
-				// }
-
 				this.isCompleted = true;
 			}
 

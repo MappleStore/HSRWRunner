@@ -10,6 +10,12 @@ public class Player extends PApplet {
 	final int MAX_X = 340; // Maximal X-Koordinate beim Laufen
 	final int PLAYER_HEIGHT = 60;
 	final int PLAYER_WIDTH = 42;
+	
+	// Bilder
+	PImage idleImage;
+	PImage run1Image;
+	PImage run2Image;
+	PImage jumpImage;
 
 	// Zustände:
 	// vorwärts-blockiert, rückwärts-blockiert, kollision, stehen, rückwärts
@@ -33,6 +39,16 @@ public class Player extends PApplet {
 		this.x = x;
 		this.y = y;
 		this.states[3] = true; // Idle
+		
+		// Bilder laden
+		this.idleImage = this.game.app.loadImage(game.DEFAULT_IMAGEPATH
+				+ "hero_idle.png");
+		this.run1Image = this.game.app.loadImage(game.DEFAULT_IMAGEPATH
+				+ "hero_run1.png");
+		this.run2Image = this.game.app.loadImage(game.DEFAULT_IMAGEPATH
+				+ "hero_run2.png");
+		this.jumpImage = this.game.app.loadImage(game.DEFAULT_IMAGEPATH
+				+ "hero_jump.png");
 	}
 
 	public void movePlayer(int x, int y) {
@@ -49,22 +65,18 @@ public class Player extends PApplet {
 		// Spielfigurbild zeichnen:
 		// Stehen
 		if (this.states[3] && this.isJumped == false) {
-			this.playerImage = this.game.app.loadImage(game.DEFAULT_IMAGEPATH
-					+ "hero_idle.png");
+			this.playerImage = this.idleImage;
 		}
 
 		// Springen
 		if (this.isJumped && this.states[3]) {
-			this.playerImage = this.game.app.loadImage(game.DEFAULT_IMAGEPATH
-					+ "hero_jump.png");
+			this.playerImage = this.jumpImage;
 		} else if (this.isJumped == false && this.states[3] == false) {
 			// Laufen
 			if (this.delay < 5) {
-				this.playerImage = this.game.app
-						.loadImage(game.DEFAULT_IMAGEPATH + "hero_run1.png");
+				this.playerImage = this.run1Image;
 			} else {
-				this.playerImage = this.game.app
-						.loadImage(game.DEFAULT_IMAGEPATH + "hero_run2.png");
+				this.playerImage = this.run2Image;
 			}
 		}
 
