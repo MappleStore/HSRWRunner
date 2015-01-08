@@ -6,6 +6,7 @@ public class Level {
 	Player hero;
 	Collision collision;
 	ArrayList<LvlObject> lvlObjects = new ArrayList<LvlObject>();
+	Background levelShadowBackground;
 	Background levelBackground;
 	public int creditpoints;
 	public double time;
@@ -20,8 +21,11 @@ public class Level {
 	// Level starten
 	public Level(Game game) {
 		this.game = game;
+		this.levelShadowBackground = new Background(game, game.DEFAULT_IMAGEPATH
+				+ "shadowbg.png");
 		this.levelBackground = new Background(game, game.DEFAULT_IMAGEPATH
-				+ "hsrw.png");
+				+ "mainbg.png");
+		
 		this.collision = new Collision(this.game);
 		this.hero = new Player(game, 80, this.game.GROUND_LEVEL - 26);
 
@@ -64,9 +68,10 @@ public class Level {
 
 	public void drawLevel() {
 		this.game.app.background(255);
+		this.levelShadowBackground.drawBackground();
 		this.levelBackground.drawBackground();
 		this.hero.drawPlayer();
-		this.logoImage = this.game.app.loadImage(game.DEFAULT_IMAGEPATH + "logo.png");
+	//	this.logoImage = this.game.app.loadImage(game.DEFAULT_IMAGEPATH + "logo.png");
 		this.game.app.beginShape();
 		this.game.app.texture(logoImage);
 		this.game.app.vertex(10, 10, 3, 0, 0);
@@ -110,7 +115,8 @@ public class Level {
 		// Vorwärtsbewegung
 		if (this.game.keyboard[0] && this.hero.states[0] == false
 				&& this.hero.x >= this.hero.MAX_X) {
-			// Bewegung Hintergrund
+			// Bewegung Hintergründe
+			this.levelShadowBackground.moveBackground(-1, 0);
 			this.levelBackground.moveBackground(this.hero.SPEED * (-1), 0);
 
 			// Objekte mitbewegen

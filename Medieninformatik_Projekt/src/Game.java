@@ -6,7 +6,7 @@ public class Game {
 	final int GRAVITY = 4;
 	final int WINDOW_HEIGHT = 480;
 	final int WINDOW_WIDTH = 720;
-	final int GROUND_LEVEL = 428;
+	final int GROUND_LEVEL = 424;
 	public int sumCreditPoints = 0;
 
 	Level hsrwLvl = null;
