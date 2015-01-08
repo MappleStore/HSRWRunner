@@ -96,6 +96,12 @@ public class Mission {
 				} else if (this.game.keyboard[5] && this.answerKey == 2) {
 					this.game.sumCreditPoints += this.CREDITPOINTS;
 					this.isSolved = true;
+				} else if (this.game.keyboard[6] && this.answerKey == 3) {
+					this.game.sumCreditPoints += this.CREDITPOINTS;
+					this.isSolved = true;
+				} else if (this.game.keyboard[7] && this.answerKey == 4) {
+					this.game.sumCreditPoints += this.CREDITPOINTS;
+					this.isSolved = true;
 				}
 
 				// Spieler vorbewegen

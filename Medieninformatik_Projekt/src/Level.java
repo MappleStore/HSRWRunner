@@ -41,8 +41,10 @@ public class Level {
 
 		// Mission 1
 		ArrayList<String> tmpAnswers = new ArrayList<String>();
-		tmpAnswers.add("[SHIFT] Schwarz");
-		tmpAnswers.add("[CTRL] Blau");
+		tmpAnswers.add("[1] Schwarz");
+		tmpAnswers.add("[2] Blau");
+		tmpAnswers.add("[3] Gelb");
+		tmpAnswers.add("[4] Lila");
 		String tmpMissionText = "Hallo, mein Name ist Tim...";
 		String tmpQuestion = "Was ist meine Lieblingsfarbe?";
 		String tmpSolvedText = "Gut gemacht!";
@@ -68,7 +70,7 @@ public class Level {
 		this.game.app.text("HSRW Runner", 10, 34, 2);
 		this.game.app.text("CreditPoints: " + this.game.sumCreditPoints, 500,
 				34, 2);
-		this.game.app.fill(255, 255, 255);
+		this.game.app.fill(0, 0, 0);
 		this.game.app.endShape();
 
 		inMission = false;
@@ -87,11 +89,6 @@ public class Level {
 					lvlObject.mission.checkMission();
 				}
 			}
-		}
-
-		// Check wieviel CP's man hat
-		if (this.game.keyboard[6]) {
-			System.out.println("CreditPoints = " + this.game.sumCreditPoints);
 		}
 
 		// Funktion für Bewegungen im Level
