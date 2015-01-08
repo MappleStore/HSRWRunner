@@ -10,7 +10,7 @@ public class Player extends PApplet {
 	final int MAX_X = 340; // Maximal X-Koordinate beim Laufen
 	final int PLAYER_HEIGHT = 60;
 	final int PLAYER_WIDTH = 42;
-	
+
 	// Bilder
 	PImage idleImage;
 	PImage run1Image;
@@ -39,7 +39,7 @@ public class Player extends PApplet {
 		this.x = x;
 		this.y = y;
 		this.states[3] = true; // Idle
-		
+
 		// Bilder laden
 		this.idleImage = this.game.app.loadImage(game.DEFAULT_IMAGEPATH
 				+ "hero_idle.png");
@@ -78,6 +78,11 @@ public class Player extends PApplet {
 			} else {
 				this.playerImage = this.run2Image;
 			}
+		}
+
+		// In Mission
+		if (this.game.hsrwLvl.inMission) {
+			this.playerImage = this.idleImage;
 		}
 
 		// Vorwärts

@@ -67,11 +67,11 @@ public class Level {
 		answerKey = new ArrayList<Integer>();
 		answerKey.add(3);
 		tmpAnswers.add("[1] ComicPlanet");
-		tmpAnswers.add("[2] LadyGaGa");
+		tmpAnswers.add("[2] Lady Gaga");
 		tmpAnswers.add("[3] DirtyWhitePaint");
 		tmpAnswers.add("[4] keiner von denen");
 		tmpMissionText = "Hallo, ich heiße Marwin. Ich gucke\nmir gerne sinnlosen Kram an.";
-		tmpQuestion = "Wer hat auf YouTube den\nMarienkäfer Marvin erfunden?";
+		tmpQuestion = "Wer hat auf YouTube den\nMarienkäfer \"Marvin\" erfunden?";
 		tmpSolvedText = "Ich heiße Marwin!\n5 CPs an den Marienkäfer.";
 		tmpNotSolvedText = "Ist das so?\nKeine extra CPs für dich!";
 		tmpMission = new Mission(game, "white.png", 230, 300, 100, 100, 3,
@@ -91,15 +91,15 @@ public class Level {
 		// Mission 3 - Sarah
 		tmpAnswers = new ArrayList<String>();
 		answerKey = new ArrayList<Integer>();
-		answerKey.add(1);
-		tmpAnswers.add("[1] Antwort");
-		tmpAnswers.add("[2] Antwort");
-		tmpAnswers.add("[3] Antwort");
-		tmpAnswers.add("[4] Antwort");
-		tmpMissionText = "Hallo, ich bin Sarah...";
-		tmpQuestion = "Meine Frage?";
-		tmpSolvedText = "5 CPs ...";
-		tmpNotSolvedText = "Keine extra CPs...";
+		answerKey.add(4);
+		tmpAnswers.add("[1] Fight Club");
+		tmpAnswers.add("[2] Garden State");
+		tmpAnswers.add("[3] Sin City");
+		tmpAnswers.add("[4] The Fast and the Furious");
+		tmpMissionText = "Hallo, ich bin Sarah und mag Filme.";
+		tmpQuestion = "Welchen Film habe ich aber nicht\nim Regal stehen?";
+		tmpSolvedText = "5 filmreife CPs!";
+		tmpNotSolvedText = "Keine CPs, kein Oscar.";
 		tmpMission = new Mission(game, "white.png", 200, 300, 100, 100, 3,
 				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
 				tmpAnswers, answerKey);
@@ -167,7 +167,7 @@ public class Level {
 
 			// Mission prüfen und ggf. zeichnen
 			if (lvlObject.mission != null) {
-				if (lvlObject.collided && lvlObject.mission.isPlayed != true) {
+				if (lvlObject.collided && lvlObject.mission.isPlayed != true) {					
 					inMission = true;
 					lvlObject.mission.drawMission();
 
