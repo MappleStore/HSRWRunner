@@ -12,8 +12,8 @@ public class Player extends PApplet {
 	final int PLAYER_WIDTH = 42;
 
 	// Zustände:
-	// vorwärts-blockiert, rückwärts-blockiert, kollision, stehen, rückwärts, mission
-	boolean[] states = new boolean[6];
+	// vorwärts-blockiert, rückwärts-blockiert, kollision, stehen, rückwärts
+	boolean[] states = new boolean[5];
 
 	// Koordinaten und weitere Zustände
 	int y;

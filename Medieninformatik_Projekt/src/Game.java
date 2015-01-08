@@ -14,8 +14,8 @@ public class Game {
 
 	// Spiel starten
 	public Game(PApplet parentApplet) {
-		// Rechts, Links, Oben, Unten
-		this.keyboard = new boolean[8];
+		// Rechts, Links, Oben, Unten, Shift, Ctrl, Backspace, Enter, Anykey
+		this.keyboard = new boolean[9];
 		this.app = parentApplet;
 	}
 
@@ -26,6 +26,8 @@ public class Game {
 
 	// Gedrückte Tasten in Array setzen
 	public void keyPressed() {
+		this.keyboard[8] = true;
+		
 		if (this.app.key == this.app.CODED) {
 			if (this.app.keyCode == this.app.RIGHT) {
 				this.keyboard[0] = true;
@@ -56,6 +58,8 @@ public class Game {
 
 	// Nicht mehr gedrückte Tasten in Array setzen
 	public void keyReleased() {
+		this.keyboard[8] = false;
+		
 		if (this.app.key == this.app.CODED) {
 			if (this.app.keyCode == this.app.RIGHT) {
 				this.keyboard[0] = false;
@@ -75,11 +79,11 @@ public class Game {
 			if (this.app.keyCode == this.app.CONTROL) {
 				this.keyboard[5] = false;
 			}
-			if (this.app.keyCode == 51) {
-				this.keyboard[6] = true;
+			if (this.app.keyCode == this.app.BACKSPACE) {
+				this.keyboard[6] = false;
 			}
-			if (this.app.keyCode == 52) {
-				this.keyboard[7] = true;
+			if (this.app.keyCode == this.app.ENTER) {
+				this.keyboard[7] = false;
 			}
 		}
 	}

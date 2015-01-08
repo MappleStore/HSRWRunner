@@ -12,7 +12,6 @@ public class Collision {
 		player.states[0] = false;
 		player.states[1] = false;
 		player.states[2] = false;
-		player.states[5] = false;
 
 		for (LvlObject lvlObject : lvlObjects) {
 			lvlObject.collided = false;
@@ -27,12 +26,14 @@ public class Collision {
 					lvlObject.collided = true;
 
 					if (lvlObject.mission != null) {
-						player.states[5] = true;
-						player.missionCounter++;
+						if(lvlObject.mission.isPlayed == false) {
+							this.game.hsrwLvl.inMission = true;
+							player.missionCounter++;	
+						}
 					}
 
 					// Spieler darf nicht in/unter Objektoberfläche stehen
-					if (player.y != (lvlObject.y - lvlObject.height) && player.states[5] == false) {
+					if (player.y != (lvlObject.y - lvlObject.height) && this.game.hsrwLvl.inMission == false) {
 						player.y -= 1; // anheben
 					}
 				}
@@ -46,11 +47,6 @@ public class Collision {
 						player.states[1] = true; // Zurückbewegung sperren
 					}
 				}
-
-				// System.out.println(player.states[0] + " # " +
-				// player.states[1] + " # " + player.states[2]);
-				// System.out.println(player.y + " # " + lvlObject.y + " # " +
-				// (lvlObject.y + lvlObject.height));
 			}
 		}
 

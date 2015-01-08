@@ -45,8 +45,11 @@ public class Level {
 		tmpAnswers.add("[CTRL] Blau");
 		String tmpMissionText = "Hallo, mein Name ist Tim...";
 		String tmpQuestion = "Was ist meine Lieblingsfarbe?";
+		String tmpSolvedText = "Gut gemacht!";
+		String tmpNotSolvedText = "Schade, das ist leider falsch!";
 		tmpMission = new Mission(game, "white.png", 200, 300, 100, 100, 3,
-				tmpMissionText, tmpQuestion, tmpAnswers, 0, 2);
+				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
+				tmpAnswers, 2);
 
 		lvlObjects
 				.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
@@ -74,32 +77,16 @@ public class Level {
 		for (LvlObject lvlObject : this.lvlObjects) {
 			lvlObject.draw();
 
-			// Mission prüfen
-			if (this.hero.states[5] == true && lvlObject.collided
-					&& this.tmpMission.isPlayed != true) {
-				lvlObject.mission.drawMission();
-				inMission = true;
-			}
-		}
+			// Mission prüfen und ggf. zeichnen
+			if (lvlObject.mission != null) {
+				if (lvlObject.collided && lvlObject.mission.isPlayed != true) {
+					inMission = true;
+					lvlObject.mission.drawMission();
 
-		// Funktion für in Mission check welche Taste gedrückt wurde, bei
-		// richtiger Antwort creditpoints addieren
-		if (inMission) {
-			if (this.game.keyboard[4] ^ this.game.keyboard[5]
-					^ this.game.keyboard[6] ^ this.game.keyboard[7]) {
-				inMission = false;
-				if (this.game.keyboard[4] && this.tmpMission.rightAnswer == 1) {
-					this.game.sumCreditPoints += this.tmpMission.CREDITPOINTS;
-				} else if (this.game.keyboard[5]
-						&& this.tmpMission.rightAnswer == 2) {
-					this.game.sumCreditPoints += this.tmpMission.CREDITPOINTS;
+					// Mission durchführen
+					lvlObject.mission.checkMission();
 				}
-
-				this.hero.x += 70; // noch versuchen variabel zu bekommen
-									// (missionsobjekt breite anstatt 70)
-				this.tmpMission.isPlayed = true;
 			}
-
 		}
 
 		// Check wieviel CP's man hat

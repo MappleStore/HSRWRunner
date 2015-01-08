@@ -13,6 +13,7 @@ public class LvlObject {
 	Mission mission;
 	PImage texture;
 
+	// Ohne Mission
 	public LvlObject(Game game, String texturePath, int height, int width,
 			int x, int y, int z) {
 		this.game = game;
@@ -25,6 +26,7 @@ public class LvlObject {
 		this.visible = true;
 	}
 	
+	// Mit Mission
 	public LvlObject(Game game, String texturePath, int height, int width,
 			int x, int y, int z, Mission mission) {
 		this(game, texturePath, height, width, x, y, z);

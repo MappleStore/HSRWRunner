@@ -1,9 +1,12 @@
 import java.util.ArrayList;
+
 import processing.core.PImage;
 
 public class Mission {
 	Game game;
 	boolean isPlayed;
+	boolean isCompleted;
+	boolean isSolved;
 	PImage missionImage;
 	int height;
 	int width;
@@ -13,15 +16,17 @@ public class Mission {
 	String missionText;
 	String questionText;
 	ArrayList<String> answers;
-	int answerIndex;
+	int answerKey;
+	String solvedText;
+	String notSolvedText;
+
 	final int CREDITPOINTS = 5;
 	final int FONTSIZE = 16;
-	public int rightAnswer;
 
-	public Mission(Game game, String texturePath, int height,
-			int width, int x, int y, int z, String missionText,
-			String questionText, ArrayList<String> answers, int answerIndex,
-			int rightAnswer) {
+	public Mission(Game game, String texturePath, int height, int width, int x,
+			int y, int z, String missionText, String questionText,
+			String solvedText, String notSolvedText, ArrayList<String> answers,
+			int answerKey) {
 		this.game = game;
 		this.isPlayed = false;
 		this.missionImage = this.game.app.loadImage(game.DEFAULT_IMAGEPATH
@@ -35,8 +40,9 @@ public class Mission {
 		this.missionText = missionText;
 		this.questionText = questionText;
 		this.answers = answers;
-		this.answerIndex = answerIndex;
-		this.rightAnswer = rightAnswer;
+		this.answerKey = answerKey;
+		this.solvedText = solvedText;
+		this.notSolvedText = notSolvedText;
 	}
 
 	public void drawMission() {
@@ -53,18 +59,65 @@ public class Mission {
 		this.game.app.fill(0, 0, 0);
 
 		int pixelRow = (int) (this.FONTSIZE * 1.2);
-		this.game.app.text(this.missionText, this.x + 10, this.y + pixelRow,
-				this.z);
-		pixelRow += this.FONTSIZE * 1.2;
-		this.game.app.text(this.questionText, this.x + 10, this.y + pixelRow,
-				this.z);
-		pixelRow += this.FONTSIZE * 1.2;
 
-		for (String answer : this.answers) {
-			this.game.app.text(answer, this.x + 10, this.y + pixelRow, this.z);
+		if (this.isCompleted == false) {
+			this.game.app.text(this.missionText, this.x + 10,
+					this.y + pixelRow, this.z);
 			pixelRow += this.FONTSIZE * 1.2;
+			this.game.app.text(this.questionText, this.x + 10, this.y
+					+ pixelRow, this.z);
+			pixelRow += this.FONTSIZE * 1.2;
+
+			for (String answer : this.answers) {
+				this.game.app.text(answer, this.x + 10, this.y + pixelRow,
+						this.z);
+				pixelRow += this.FONTSIZE * 1.2;
+			}
+		} else if (this.isSolved) {
+			this.game.app.text(this.solvedText, this.x + 10, this.y + pixelRow,
+					this.z);
+		} else if (this.isSolved == false) {
+			this.game.app.text(this.notSolvedText, this.x + 10, this.y
+					+ pixelRow, this.z);
 		}
 
+	}
+
+	public void checkMission() {
+		// Funktion für in Mission check welche Taste gedrückt wurde, bei
+		// richtiger Antwort creditpoints addieren
+		if (this.game.hsrwLvl.inMission && this.isCompleted == false) {
+			if (this.game.keyboard[4] ^ this.game.keyboard[5]
+					^ this.game.keyboard[6] ^ this.game.keyboard[7]) {
+				// Nicht gelöst
+				if (this.game.keyboard[4] && this.answerKey == 1) {
+					this.game.sumCreditPoints += this.CREDITPOINTS;
+					this.isSolved = true;
+				} else if (this.game.keyboard[5] && this.answerKey == 2) {
+					this.game.sumCreditPoints += this.CREDITPOINTS;
+					this.isSolved = true;
+				}
+
+				// Spieler vorbewegen
+				// for (LvlObject lvlObject : this.game.hsrwLvl.lvlObjects) {
+				// if (lvlObject.mission != null) {
+				// if (lvlObject.collided) {
+				// this.game.hsrwLvl.hero.movePlayer(
+				// this.game.hsrwLvl.hero.PLAYER_WIDTH
+				// + lvlObject.width, 0);
+				// }
+				// }
+				// }
+
+				this.isCompleted = true;
+			}
+
+		} else if (this.isCompleted) {
+			if (this.game.keyboard[0] || this.game.keyboard[1] || this.game.keyboard[2]) {
+				this.isPlayed = true;
+			}
+
+		}
 	}
 
 }
