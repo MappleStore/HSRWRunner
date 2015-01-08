@@ -85,21 +85,21 @@ public class Player extends PApplet {
 			this.game.app.noStroke();
 			this.game.app.beginShape(this.game.app.QUADS);
 			this.game.app.texture(playerImage);
-			this.game.app.vertex(this.x, this.y - this.PLAYER_HEIGHT, 2, 0, 0);
+			this.game.app.vertex(this.x, this.y - this.PLAYER_HEIGHT, 9, 0, 0);
 			this.game.app.vertex(this.x + this.PLAYER_WIDTH, this.y
-					- this.PLAYER_HEIGHT, 2, 1, 0);
-			this.game.app.vertex(this.x + this.PLAYER_WIDTH, this.y, 2, 1, 1);
-			this.game.app.vertex(this.x, this.y, 2, 0, 1);
+					- this.PLAYER_HEIGHT, 9, 1, 0);
+			this.game.app.vertex(this.x + this.PLAYER_WIDTH, this.y, 9, 1, 1);
+			this.game.app.vertex(this.x, this.y, 9, 0, 1);
 			this.game.app.endShape();
 		} else { // Rückwärts (gespiegelt)
 			this.game.app.noStroke();
 			this.game.app.beginShape(this.game.app.QUADS);
 			this.game.app.texture(playerImage);
-			this.game.app.vertex(this.x, this.y - this.PLAYER_HEIGHT, 2, 1, 0);
+			this.game.app.vertex(this.x, this.y - this.PLAYER_HEIGHT, 9, 1, 0);
 			this.game.app.vertex(this.x + this.PLAYER_WIDTH, this.y
-					- this.PLAYER_HEIGHT, 2, 0, 0);
-			this.game.app.vertex(this.x + this.PLAYER_WIDTH, this.y, 2, 0, 1);
-			this.game.app.vertex(this.x, this.y, 2, 1, 1);
+					- this.PLAYER_HEIGHT, 9, 0, 0);
+			this.game.app.vertex(this.x + this.PLAYER_WIDTH, this.y, 9, 0, 1);
+			this.game.app.vertex(this.x, this.y, 9, 1, 1);
 			this.game.app.endShape();
 		}
 	}

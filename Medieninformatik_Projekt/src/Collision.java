@@ -33,13 +33,13 @@ public class Collision {
 					}
 
 					// Spieler darf nicht in/unter Objektoberfläche stehen
-					if (player.y != (lvlObject.y - lvlObject.height) && this.game.hsrwLvl.inMission == false) {
+					if (player.y != (lvlObject.y - lvlObject.height) && this.game.hsrwLvl.inMission == false && lvlObject.goThrough == false) {
 						player.y -= 1; // anheben
 					}
 				}
 
 				// Auf gleicher Höhe?
-				if ((lvlObject.y - lvlObject.height + 1) < player.y) {
+				if ((lvlObject.y - lvlObject.height + 1) < player.y && lvlObject.goThrough == false) {
 					// Steht die Figur eher vor oder hinter dem Objekt?
 					if (player.x <= lvlObject.x + (lvlObject.width / 2)) {
 						player.states[0] = true; // Vorbewegung sperren

@@ -16,17 +16,17 @@ public class Mission {
 	String missionText;
 	String questionText;
 	ArrayList<String> answers;
-	int answerKey;
+	ArrayList<Integer> answerKey;
 	String solvedText;
 	String notSolvedText;
 
 	final int CREDITPOINTS = 5;
-	final int FONTSIZE = 16;
+	final int FONTSIZE = 14;
 
 	public Mission(Game game, String texturePath, int height, int width, int x,
 			int y, int z, String missionText, String questionText,
 			String solvedText, String notSolvedText, ArrayList<String> answers,
-			int answerKey) {
+			ArrayList<Integer> answerKey) {
 		this.game = game;
 		this.isPlayed = false;
 		this.missionImage = this.game.app.loadImage(game.DEFAULT_IMAGEPATH
@@ -57,30 +57,23 @@ public class Mission {
 		this.game.app.endShape();
 		this.game.app.textSize(this.FONTSIZE);
 		this.game.app.fill(0, 0, 0);
-
-		int pixelRow = (int) (this.FONTSIZE * 1.2);
-
+		
+		String tmpOutputText = "";
 		if (this.isCompleted == false) {
-			this.game.app.text(this.missionText, this.x + 10,
-					this.y + pixelRow, this.z);
-			pixelRow += this.FONTSIZE * 1.2;
-			this.game.app.text(this.questionText, this.x + 10, this.y
-					+ pixelRow, this.z);
-			pixelRow += this.FONTSIZE * 1.2;
+			tmpOutputText = this.missionText + "\n\n" + this.questionText;
+
 
 			for (String answer : this.answers) {
-				this.game.app.text(answer, this.x + 10, this.y + pixelRow,
-						this.z);
-				pixelRow += this.FONTSIZE * 1.2;
+				tmpOutputText = tmpOutputText + "\n" + answer;
 			}
-		} else if (this.isSolved) {
-			this.game.app.text(this.solvedText, this.x + 10, this.y + pixelRow,
-					this.z);
+		} else if (this.isSolved) {			
+			tmpOutputText = this.solvedText;
 		} else if (this.isSolved == false) {
-			this.game.app.text(this.notSolvedText, this.x + 10, this.y
-					+ pixelRow, this.z);
+			tmpOutputText = this.notSolvedText;
 		}
-
+		
+		this.game.app.text(tmpOutputText, this.x + 15,
+				this.y + 25, this.z);
 	}
 
 	public void checkMission() {
@@ -89,19 +82,22 @@ public class Mission {
 		if (this.game.hsrwLvl.inMission && this.isCompleted == false) {
 			if (this.game.keyboard[4] ^ this.game.keyboard[5]
 					^ this.game.keyboard[6] ^ this.game.keyboard[7]) {
-				// Nicht gelöst
-				if (this.game.keyboard[4] && this.answerKey == 1) {
-					this.game.sumCreditPoints += this.CREDITPOINTS;
-					this.isSolved = true;
-				} else if (this.game.keyboard[5] && this.answerKey == 2) {
-					this.game.sumCreditPoints += this.CREDITPOINTS;
-					this.isSolved = true;
-				} else if (this.game.keyboard[6] && this.answerKey == 3) {
-					this.game.sumCreditPoints += this.CREDITPOINTS;
-					this.isSolved = true;
-				} else if (this.game.keyboard[7] && this.answerKey == 4) {
-					this.game.sumCreditPoints += this.CREDITPOINTS;
-					this.isSolved = true;
+				
+				// Mehrere richtige Antworten möglich
+				for (Integer key : this.answerKey) {
+					if (this.game.keyboard[4] && key == 1) {
+						this.game.sumCreditPoints += this.CREDITPOINTS;
+						this.isSolved = true;
+					} else if (this.game.keyboard[5] && key == 2) {
+						this.game.sumCreditPoints += this.CREDITPOINTS;
+						this.isSolved = true;
+					} else if (this.game.keyboard[6] && key == 3) {
+						this.game.sumCreditPoints += this.CREDITPOINTS;
+						this.isSolved = true;
+					} else if (this.game.keyboard[7] && key == 4) {
+						this.game.sumCreditPoints += this.CREDITPOINTS;
+						this.isSolved = true;
+					}
 				}
 
 				this.isCompleted = true;

@@ -7,7 +7,7 @@ public class LvlObject {
 	int y;
 	int x;
 	int z;
-	boolean visible;
+	boolean goThrough;
 	boolean collided;
 
 	Mission mission;
@@ -15,7 +15,7 @@ public class LvlObject {
 
 	// Ohne Mission
 	public LvlObject(Game game, String texturePath, int height, int width,
-			int x, int y, int z) {
+			int x, int y, int z, boolean goThrough) {
 		this.game = game;
 		this.texture = this.game.app.loadImage(texturePath);
 		this.height = height;
@@ -23,13 +23,13 @@ public class LvlObject {
 		this.x = x;
 		this.y = y;
 		this.z = z;
-		this.visible = true;
+		this.goThrough = goThrough;
 	}
 	
 	// Mit Mission
 	public LvlObject(Game game, String texturePath, int height, int width,
-			int x, int y, int z, Mission mission) {
-		this(game, texturePath, height, width, x, y, z);
+			int x, int y, int z, boolean goThrough, Mission mission) {
+		this(game, texturePath, height, width, x, y, z, goThrough);
 		this.mission = mission;
 	}
 
