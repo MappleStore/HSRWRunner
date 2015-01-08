@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import processing.core.PImage;
 
 public class Level {
 	Game game;
@@ -10,6 +11,7 @@ public class Level {
 	public double time;
 	public boolean inMission;
 	Mission tmpMission;
+	PImage logoImage;
 
 	public Level() {
 		// default
@@ -64,10 +66,14 @@ public class Level {
 		this.game.app.background(255);
 		this.levelBackground.drawBackground();
 		this.hero.drawPlayer();
-
+		this.logoImage = this.game.app.loadImage(game.DEFAULT_IMAGEPATH + "logo.png");
 		this.game.app.beginShape();
+		this.game.app.texture(logoImage);
+		this.game.app.vertex(10, 10, 3, 0, 0);
+		this.game.app.vertex(300, 10, 3, 1, 0);
+		this.game.app.vertex(300, 100, 3, 1, 1);
+		this.game.app.vertex(10, 100, 3, 0, 1);
 		this.game.app.textSize(24);
-		this.game.app.text("HSRW Runner", 10, 34, 2);
 		this.game.app.text("CreditPoints: " + this.game.sumCreditPoints, 500,
 				34, 2);
 		this.game.app.fill(0, 0, 0);
