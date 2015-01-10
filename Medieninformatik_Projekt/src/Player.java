@@ -5,7 +5,7 @@ public class Player extends PApplet {
 	Game game;
 
 	final int JUMP_HEIGHT = 60;
-	final int SPEED = 2;
+	final int SPEED = 4;
 	final int MIN_X = 0; // Minimal X-Koordinate beim Laufen
 	final int MAX_X = 340; // Maximal X-Koordinate beim Laufen
 	final int PLAYER_HEIGHT = 60;

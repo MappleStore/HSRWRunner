@@ -7,6 +7,7 @@ public class Level {
 	Player hero;
 	Collision collision;
 	ArrayList<LvlObject> lvlObjects = new ArrayList<LvlObject>();
+	ArrayList<Mission> timMissions = new ArrayList<Mission>();
 	Background levelShadowBackground;
 	Background levelBackground;
 	public int creditpoints;
@@ -48,13 +49,29 @@ public class Level {
 		String tmpQuestion = "Was ist meine Lieblingsfarbe?";
 		String tmpSolvedText = "Gut geraten!\n5 CPs für dich.";
 		String tmpNotSolvedText = "Ernsthaft?\nKeine CPs für dich!";
-		tmpMission = new Mission(game, "white.png", 200, 300, 100, 100, 3,
+		timMissions.add(new Mission(game, "white.png", 200, 300, 100, 100, 3,
 				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
-				tmpAnswers, answerKey);
+				tmpAnswers, answerKey));
+		tmpAnswers = new ArrayList<String>();
+		answerKey = new ArrayList<Integer>();
+		answerKey.add(1);
+		tmpAnswers.add("[1] Schwimmen");
+		tmpAnswers.add("[2] Hockey");
+		tmpAnswers.add("[3] Darten");
+		tmpAnswers.add("[4] Fußball");
+		tmpMissionText = "Hallo, ich bin Tim ...";
+		tmpQuestion = "Was ist mein Hobby?";
+		tmpSolvedText = "Gut geraten!\n5 CPs für dich.";
+		tmpNotSolvedText = "Ernsthaft?\nKeine CPs für dich!";
+		timMissions.add(new Mission(game, "white.png", 200, 300, 100, 100, 3, tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText, tmpAnswers, answerKey));
 
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "tim.png", 60, 42, 740, this.game.GROUND_LEVEL, 2, true,
-				tmpMission));
+				timMissions));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "tim.png", 60, 42, 890, this.game.GROUND_LEVEL, 2, true,
+				timMissions));
+		
 
 		// Objekt 2
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
@@ -78,9 +95,9 @@ public class Level {
 				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
 				tmpAnswers, answerKey);
 
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+		/*lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "marwin.png", 60, 42, 1480, this.game.GROUND_LEVEL, 2, true,
-				tmpMission));
+				tmpMission));*/
 
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "alien.png", 47, 49, 1640, this.game.GROUND_LEVEL, 2, false));
@@ -104,9 +121,9 @@ public class Level {
 				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
 				tmpAnswers, answerKey);
 
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+		/*lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "sarah.png", 60, 42, 2340, this.game.GROUND_LEVEL, 2, true,
-				tmpMission));
+				tmpMission));*/
 
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "ape.png", 35, 36, 2800, this.game.GROUND_LEVEL, 2, false));
@@ -117,22 +134,22 @@ public class Level {
 		// Mission 4 - Johannes
 		tmpAnswers = new ArrayList<String>();
 		answerKey = new ArrayList<Integer>();
-		answerKey.add(1);
+		answerKey.add(4);
 		tmpAnswers.add("[1] Hennes");
-		tmpAnswers.add("[2] Tünnes");
-		tmpAnswers.add("[3] Schäl");
+		tmpAnswers.add("[2] Tünnes und Schäl");
 		tmpAnswers.add("[3] Geißbock");
+		tmpAnswers.add("[4] Alle sind Kölner");
 		tmpMissionText = "Hallo, ich bin Johannes und\nkomme aus Köln.";
 		tmpQuestion = "Kannst du mir sagen, wer kein\nKölner ist?";
-		tmpSolvedText = "Richtig. Hennes ist das Maskottchen\ndes FC, ein Geißbock, und Tünnes und\nSchäl sind Figuren aus dem Kölschen\nHännesschen Theater.";
-		tmpNotSolvedText = "Falsch, alle sind Kölner.\nHennes ist das Maskottchend es FC,\nein Geißbock, und Tünnes und Schäl\nsind Figuren aus dem Kölschen\nHännesschen Theater.";
+		tmpSolvedText = "Richtig. Hennes ist das Maskottchen\ndes FC, ein Geißbock, Tünnes und\nSchäl sind Figuren aus dem Kölschen\nHännesschen Theater.";
+		tmpNotSolvedText = "Falsch, alle sind Kölner.\nHennes ist das Maskottchend es FC,\nein Geißbock, Tünnes und Schäl\nsind Figuren aus dem Kölschen\nHännesschen Theater.";
 		tmpMission = new Mission(game, "white.png", 230, 300, 100, 100, 3,
 				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
 				tmpAnswers, answerKey);
 
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+		/*lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "johannes.png", 60, 42, 3280, this.game.GROUND_LEVEL, 2,
-				true, tmpMission));
+				true, tmpMission));*/
 
 		// Prof 3
 		// ...
