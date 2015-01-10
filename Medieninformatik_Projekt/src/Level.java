@@ -7,13 +7,11 @@ public class Level {
 	Player hero;
 	Collision collision;
 	ArrayList<LvlObject> lvlObjects = new ArrayList<LvlObject>();
-	ArrayList<Mission> timMissions = new ArrayList<Mission>();
 	Background levelShadowBackground;
 	Background levelBackground;
 	public int creditpoints;
 	public double time;
 	public boolean inMission;
-	Mission tmpMission;
 	PImage logoImage;
 
 	public Level() {
@@ -38,6 +36,7 @@ public class Level {
 				+ "ape.png", 35, 36, 300, this.game.GROUND_LEVEL, 2, false));
 
 		// Mission 1 - Tim
+		ArrayList<Mission> tmpMissions = new ArrayList<Mission>();
 		ArrayList<String> tmpAnswers = new ArrayList<String>();
 		ArrayList<Integer> answerKey = new ArrayList<Integer>();
 		answerKey.add(2);
@@ -49,7 +48,7 @@ public class Level {
 		String tmpQuestion = "Was ist meine Lieblingsfarbe?";
 		String tmpSolvedText = "Gut geraten!\n5 CPs für dich.";
 		String tmpNotSolvedText = "Ernsthaft?\nKeine CPs für dich!";
-		timMissions.add(new Mission(game, "white.png", 200, 300, 100, 100, 3,
+		tmpMissions.add(new Mission(game, "white.png", 200, 300, 100, 100, 3,
 				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
 				tmpAnswers, answerKey));
 		tmpAnswers = new ArrayList<String>();
@@ -63,15 +62,16 @@ public class Level {
 		tmpQuestion = "Was ist mein Hobby?";
 		tmpSolvedText = "Gut geraten!\n5 CPs für dich.";
 		tmpNotSolvedText = "Ernsthaft?\nKeine CPs für dich!";
-		timMissions.add(new Mission(game, "white.png", 200, 300, 100, 100, 3, tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText, tmpAnswers, answerKey));
+		tmpMissions.add(new Mission(game, "white.png", 200, 300, 100, 100, 3,
+				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
+				tmpAnswers, answerKey));
 
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "tim.png", 60, 42, 740, this.game.GROUND_LEVEL, 2, true,
-				timMissions));
+				tmpMissions));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "tim.png", 60, 42, 890, this.game.GROUND_LEVEL, 2, true,
-				timMissions));
-		
+				tmpMissions));
 
 		// Objekt 2
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
@@ -80,6 +80,7 @@ public class Level {
 				+ "poop.png", 35, 36, 636, this.game.GROUND_LEVEL, 2, false));
 
 		// Mission 2 - Marwin
+		tmpMissions = new ArrayList<Mission>();
 		tmpAnswers = new ArrayList<String>();
 		answerKey = new ArrayList<Integer>();
 		answerKey.add(3);
@@ -91,13 +92,13 @@ public class Level {
 		tmpQuestion = "Wer hat auf YouTube den\nMarienkäfer \"Marvin\" erfunden?";
 		tmpSolvedText = "Ich heiße Marwin!\n5 CPs an den Marienkäfer.";
 		tmpNotSolvedText = "Ist das so?\nKeine extra CPs für dich!";
-		tmpMission = new Mission(game, "white.png", 230, 300, 100, 100, 3,
+		tmpMissions.add(new Mission(game, "white.png", 230, 300, 100, 100, 3,
 				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
-				tmpAnswers, answerKey);
+				tmpAnswers, answerKey));
 
-		/*lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "marwin.png", 60, 42, 1480, this.game.GROUND_LEVEL, 2, true,
-				tmpMission));*/
+				tmpMissions));
 
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "alien.png", 47, 49, 1640, this.game.GROUND_LEVEL, 2, false));
@@ -106,6 +107,7 @@ public class Level {
 		// ...
 
 		// Mission 3 - Sarah
+		tmpMissions = new ArrayList<Mission>();
 		tmpAnswers = new ArrayList<String>();
 		answerKey = new ArrayList<Integer>();
 		answerKey.add(4);
@@ -117,13 +119,13 @@ public class Level {
 		tmpQuestion = "Welchen Film habe ich aber nicht\nim Regal stehen?";
 		tmpSolvedText = "5 filmreife CPs!";
 		tmpNotSolvedText = "Keine CPs, kein Oscar.";
-		tmpMission = new Mission(game, "white.png", 200, 300, 100, 100, 3,
+		tmpMissions.add(new Mission(game, "white.png", 200, 300, 100, 100, 3,
 				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
-				tmpAnswers, answerKey);
+				tmpAnswers, answerKey));
 
-		/*lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "sarah.png", 60, 42, 2340, this.game.GROUND_LEVEL, 2, true,
-				tmpMission));*/
+				tmpMissions));
 
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "ape.png", 35, 36, 2800, this.game.GROUND_LEVEL, 2, false));
@@ -132,6 +134,7 @@ public class Level {
 		// ....
 
 		// Mission 4 - Johannes
+		tmpMissions = new ArrayList<Mission>();
 		tmpAnswers = new ArrayList<String>();
 		answerKey = new ArrayList<Integer>();
 		answerKey.add(4);
@@ -143,17 +146,23 @@ public class Level {
 		tmpQuestion = "Kannst du mir sagen, wer kein\nKölner ist?";
 		tmpSolvedText = "Richtig. Hennes ist das Maskottchen\ndes FC, ein Geißbock, Tünnes und\nSchäl sind Figuren aus dem Kölschen\nHännesschen Theater.";
 		tmpNotSolvedText = "Falsch, alle sind Kölner.\nHennes ist das Maskottchend es FC,\nein Geißbock, Tünnes und Schäl\nsind Figuren aus dem Kölschen\nHännesschen Theater.";
-		tmpMission = new Mission(game, "white.png", 230, 300, 100, 100, 3,
+		tmpMissions.add(new Mission(game, "white.png", 230, 300, 100, 100, 3,
 				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
-				tmpAnswers, answerKey);
+				tmpAnswers, answerKey));
 
-		/*lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "johannes.png", 60, 42, 3280, this.game.GROUND_LEVEL, 2,
-				true, tmpMission));*/
+				true, tmpMissions));
 
 		// Prof 3
 		// ...
 
+		// Random Missions
+		for (LvlObject lvlObject : this.lvlObjects) {
+			if (lvlObject.missions != null) {
+				lvlObject.selectMission();
+			}
+		}
 	}
 
 	public void drawLevel() {
@@ -184,7 +193,7 @@ public class Level {
 
 			// Mission prüfen und ggf. zeichnen
 			if (lvlObject.mission != null) {
-				if (lvlObject.collided && lvlObject.mission.isPlayed != true) {					
+				if (lvlObject.collided && lvlObject.mission.isPlayed != true) {
 					inMission = true;
 					lvlObject.mission.drawMission();
 

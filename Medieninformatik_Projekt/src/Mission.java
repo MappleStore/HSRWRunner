@@ -7,6 +7,7 @@ public class Mission {
 	boolean isPlayed;
 	boolean isCompleted;
 	boolean isSolved;
+	boolean isMatched;
 	PImage missionImage;
 	int height;
 	int width;

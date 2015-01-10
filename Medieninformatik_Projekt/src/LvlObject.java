@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Random;
+
 import processing.core.PImage;
 
 public class LvlObject {
@@ -13,6 +14,7 @@ public class LvlObject {
 	boolean collided;
 	Random random = new Random();
 
+	ArrayList<Mission> missions;
 	Mission mission;
 	PImage texture;
 
@@ -33,7 +35,7 @@ public class LvlObject {
 	public LvlObject(Game game, String texturePath, int height, int width,
 			int x, int y, int z, boolean goThrough, ArrayList<Mission> missionen) {
 		this(game, texturePath, height, width, x, y, z, goThrough);
-		this.mission = missionen.get(random.nextInt(missionen.size()));
+		this.missions = missionen;
 		
 	}
 
@@ -53,5 +55,17 @@ public class LvlObject {
 	public void move(int x, int y) {
 		this.x = this.x + x;
 		this.y = this.y + y;
+	}
+	
+	public void selectMission() {
+		if (this.missions != null) {	
+			while(this.mission == null) {
+				Mission tmp = this.missions.get(random.nextInt(this.missions.size()));
+				if (tmp.isMatched == false) {
+					this.mission = tmp;
+					this.mission.isMatched = true;
+				}
+			}
+		}
 	}
 }
