@@ -33,7 +33,15 @@ public class Level {
 
 		// Objekt 1
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "ape.png", 35, 36, 300, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji//blume.png", 35, 36, 400, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//poop.png", 35, 36, 600, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//frosch.png", 35, 36, 750, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//santa.png", 35, 36, 1100, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//bus.png", 35, 36, 1300, this.game.GROUND_LEVEL, 2, false));
 
 		// Mission 1 - Tim
 		ArrayList<Mission> tmpMissions = new ArrayList<Mission>();
@@ -70,14 +78,14 @@ public class Level {
 				+ "tim.png", 60, 42, 1500, this.game.GROUND_LEVEL, 2, true,
 				tmpMissions));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "tim.png", 60, 42, 5200, this.game.GROUND_LEVEL, 2, true,
+				+ "tim.png", 60, 42, 10000, this.game.GROUND_LEVEL, 2, true,
 				tmpMissions));
 
 		// Objekt 2
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "ape.png", 35, 36, 600, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji//burger.png", 35, 36, 1800, this.game.GROUND_LEVEL, 2, false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "poop.png", 35, 36, 636, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji//poop.png", 35, 36, 2000, this.game.GROUND_LEVEL, 2, false));
 
 		// Mission 2 - Marwin
 		tmpMissions = new ArrayList<Mission>();
@@ -100,11 +108,13 @@ public class Level {
 				+ "marwin.png", 60, 42, 2300, this.game.GROUND_LEVEL, 2, true,
 				tmpMissions));
 
+		//Objekte 4
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "alien.png", 47, 49, 5400, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji//frosch.png", 35, 36, 700, this.game.GROUND_LEVEL, 2, false));
 
 		// Prof 1
-		// ...
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//profplatzhalter.png", 35, 36, 3500, this.game.GROUND_LEVEL, 2, false));
 
 		// Mission 3 - Sarah
 		tmpMissions = new ArrayList<Mission>();
@@ -124,7 +134,7 @@ public class Level {
 				tmpAnswers, answerKey));
 
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "sarah.png", 60, 42, 3500, this.game.GROUND_LEVEL, 2, true,
+				+ "sarah.png", 60, 42, 3700, this.game.GROUND_LEVEL, 2, true,
 				tmpMissions));
 
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
