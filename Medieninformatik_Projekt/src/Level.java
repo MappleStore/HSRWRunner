@@ -227,10 +227,19 @@ public class Level {
 				+ "johannes.png", 60, 42, 6100, this.game.GROUND_LEVEL, 2,
 				true, tmpMissions));
 
+		//Objekte
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//postbox.png", 35, 36, 6500, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//bus.png", 35, 36, 6800, this.game.GROUND_LEVEL, 2, false));
+		
 		// Prof 3
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "emoji//profplatzhalter.png", 40, 36, 7000, this.game.GROUND_LEVEL, 2, false));
 
+		// Objekte
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//fernrohr.png", 35, 36, 7300, this.game.GROUND_LEVEL, 2, false));
 
 		// Zieleinlauf
 				tmpMissions = new ArrayList<Mission>();
