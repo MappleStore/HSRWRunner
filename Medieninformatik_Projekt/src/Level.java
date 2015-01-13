@@ -39,7 +39,11 @@ public class Level {
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "emoji//frosch.png", 35, 36, 750, this.game.GROUND_LEVEL, 2, false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//santa.png", 35, 36, 1100, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji//mail.png", 35, 36, 1065, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//mail.png", 35, 36, 1110, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//affe.png", 35, 36, 1090, this.game.GROUND_LEVEL-35, 2, false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "emoji//bus.png", 35, 36, 1300, this.game.GROUND_LEVEL, 2, false));
 
@@ -111,17 +115,38 @@ public class Level {
 		//Objekte 4
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "emoji//frosch.png", 35, 36, 2400, this.game.GROUND_LEVEL, 2, false));
+		
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "emoji//postbox.png", 35, 36, 2660, this.game.GROUND_LEVEL, 2, false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//diskette.png", 35, 36, 2700, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji//postbox.png", 35, 36, 2700, this.game.GROUND_LEVEL, 2, false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//mail.png", 35, 36, 2745, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji//postbox.png", 35, 36, 2745, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//postbox.png", 35, 36, 2790, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//postbox.png", 35, 36, 2835, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//postbox.png", 35, 36, 2875, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//diskette.png", 35, 36, 2700, this.game.GROUND_LEVEL-35, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//diskette.png", 35, 36, 2745, this.game.GROUND_LEVEL-35, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//diskette.png", 35, 36, 2790, this.game.GROUND_LEVEL-35, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//diskette.png", 35, 36, 2835, this.game.GROUND_LEVEL-35, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//CD.png", 35, 36, 2745, this.game.GROUND_LEVEL-70, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//CD.png", 35, 36, 2790, this.game.GROUND_LEVEL-70, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//cloud.png", 35, 36, 2770, this.game.GROUND_LEVEL-105, 2, false));
 
 
 		// Prof 1
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//profplatzhalter.png", 35, 36, 3500, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji//profplatzhalter.png", 40, 36, 3500, this.game.GROUND_LEVEL, 2, false));
 
 		//Objekte
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
@@ -170,7 +195,7 @@ public class Level {
 
 		// Prof 2
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//profplatzhalter.png", 35, 36, 5500, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji//profplatzhalter.png", 40, 36, 5500, this.game.GROUND_LEVEL, 2, false));
 		
 		// Objekte
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
@@ -204,7 +229,7 @@ public class Level {
 
 		// Prof 3
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//profplatzhalter.png", 35, 36, 7000, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji//profplatzhalter.png", 40, 36, 7000, this.game.GROUND_LEVEL, 2, false));
 
 
 		// Zieleinlauf
