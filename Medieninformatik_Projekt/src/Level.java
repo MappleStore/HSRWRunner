@@ -110,12 +110,28 @@ public class Level {
 
 		//Objekte 4
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//frosch.png", 35, 36, 700, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji//frosch.png", 35, 36, 2400, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//postbox.png", 35, 36, 2660, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//diskette.png", 35, 36, 2700, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//mail.png", 35, 36, 2745, this.game.GROUND_LEVEL, 2, false));
+
 
 		// Prof 1
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "emoji//profplatzhalter.png", 35, 36, 3500, this.game.GROUND_LEVEL, 2, false));
 
+		//Objekte
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//poop.png", 35, 36, 3700, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//blume.png", 35, 36, 3800, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//tv.png", 35, 36, 4100, this.game.GROUND_LEVEL, 2, false));
+
+		
 		// Mission 3 - Sarah
 		tmpMissions = new ArrayList<Mission>();
 		tmpAnswers = new ArrayList<String>();
@@ -134,14 +150,36 @@ public class Level {
 				tmpAnswers, answerKey));
 
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "sarah.png", 60, 42, 3700, this.game.GROUND_LEVEL, 2, true,
+				+ "sarah.png", 60, 42, 4200, this.game.GROUND_LEVEL, 2, true,
 				tmpMissions));
 
+		//Objekte
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "ape.png", 35, 36, 5500, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji//palme.png", 35, 36, 4400, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//santa.png", 35, 36, 4700, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//H.png", 35, 36, 5000, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//S.png", 35, 36, 5040, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//R.png", 35, 36, 5080, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//W.png", 35, 36, 5120, this.game.GROUND_LEVEL, 2, false));
+
 
 		// Prof 2
-		// ....
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//profplatzhalter.png", 35, 36, 5500, this.game.GROUND_LEVEL, 2, false));
+		
+		// Objekte
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//burger.png", 35, 36, 5900, this.game.GROUND_LEVEL, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//frosch.png", 35, 36, 5600, this.game.GROUND_LEVEL, 2, false));
+
+
+
 
 		// Mission 4 - Johannes
 		tmpMissions = new ArrayList<Mission>();
@@ -161,11 +199,13 @@ public class Level {
 				tmpAnswers, answerKey));
 
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "johannes.png", 60, 42, 4500, this.game.GROUND_LEVEL, 2,
+				+ "johannes.png", 60, 42, 6100, this.game.GROUND_LEVEL, 2,
 				true, tmpMissions));
 
 		// Prof 3
-		// ...
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//profplatzhalter.png", 35, 36, 7000, this.game.GROUND_LEVEL, 2, false));
+
 
 		// Zieleinlauf
 				tmpMissions = new ArrayList<Mission>();
@@ -179,13 +219,13 @@ public class Level {
 				tmpMissionText = "Super! Du hast es geschafft. Oben siehtst\ndu deine gesammelten Creditpoints.";
 				tmpQuestion = "Bla,bla.";
 				tmpSolvedText = "Hier noch Credits und Bildquellen.";
-				tmpNotSolvedText = "Hier noch Credits und Bildquellen.";
-				tmpMissions.add(new Mission(game, "white.png", 230, 300, 100, 100, 3,
+				tmpNotSolvedText = "\nEin Projekt von Tim Landskron, Marwin Wiegard,\nSarah-Maria Rostalski und Johannes Nolte.\n\nEmojis von https://github.com/twitter/twemoji \n(CC-BY 4.0).";
+				tmpMissions.add(new Mission(game, "white.png", 230, 375, 100, 100, 3,
 						tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
 						tmpAnswers, answerKey));
 
 				lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-						+ "ziel.png", 130, 71, 4700, this.game.GROUND_LEVEL+15, 2,
+						+ "ziel.png", 180, 71, 8000, this.game.GROUND_LEVEL+15, 2,
 						true, tmpMissions));
 
 				
