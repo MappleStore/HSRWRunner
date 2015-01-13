@@ -157,6 +157,28 @@ public class Level {
 		// Prof 3
 		// ...
 
+		// Zieleinlauf
+				tmpMissions = new ArrayList<Mission>();
+				tmpAnswers = new ArrayList<String>();
+				answerKey = new ArrayList<Integer>();
+				answerKey.add(4);
+				tmpAnswers.add("[1] Tünnes");
+				tmpAnswers.add("[2] Schäl");
+				tmpAnswers.add("[3] Hennes");
+				tmpAnswers.add("[4] Alle drei sind Kölner");
+				tmpMissionText = "Hallo, ich bin Johannes und\nkomme aus Köln.";
+				tmpQuestion = "Kannst du mir sagen, wer kein\nKölner ist?";
+				tmpSolvedText = "Richtig. Hennes ist das Maskottchen\ndes FC, ein Geißbock, Tünnes und\nSchäl sind Figuren aus dem Kölschen\nHännesschen Theater.";
+				tmpNotSolvedText = "Falsch, alle sind Kölner.\nHennes ist das Maskottchen des FC,\nein Geißbock, Tünnes und Schäl\nsind Figuren aus dem Kölschen\nHännesschen Theater.";
+				tmpMissions.add(new Mission(game, "white.png", 230, 300, 100, 100, 3,
+						tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
+						tmpAnswers, answerKey));
+
+				lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+						+ "johannes.png", 60, 42, 4700, this.game.GROUND_LEVEL, 2,
+						true, tmpMissions));
+
+				
 		// Random Missions
 		for (LvlObject lvlObject : this.lvlObjects) {
 			if (lvlObject.missions != null) {
