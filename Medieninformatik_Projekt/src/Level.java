@@ -162,20 +162,20 @@ public class Level {
 				tmpAnswers = new ArrayList<String>();
 				answerKey = new ArrayList<Integer>();
 				answerKey.add(4);
-				tmpAnswers.add("[1] Tünnes");
-				tmpAnswers.add("[2] Schäl");
-				tmpAnswers.add("[3] Hennes");
-				tmpAnswers.add("[4] Alle drei sind Kölner");
-				tmpMissionText = "Hallo, ich bin Johannes und\nkomme aus Köln.";
-				tmpQuestion = "Kannst du mir sagen, wer kein\nKölner ist?";
-				tmpSolvedText = "Richtig. Hennes ist das Maskottchen\ndes FC, ein Geißbock, Tünnes und\nSchäl sind Figuren aus dem Kölschen\nHännesschen Theater.";
-				tmpNotSolvedText = "Falsch, alle sind Kölner.\nHennes ist das Maskottchen des FC,\nein Geißbock, Tünnes und Schäl\nsind Figuren aus dem Kölschen\nHännesschen Theater.";
+				tmpAnswers.add("[1] Kann");
+				tmpAnswers.add("[2] man");
+				tmpAnswers.add("[3] das hier");
+				tmpAnswers.add("[4] wegmachen?");
+				tmpMissionText = "Super! Du hast es geschafft. Oben siehtst\ndu deine gesammelten Creditpoints.";
+				tmpQuestion = "Bla,bla.";
+				tmpSolvedText = "Hier noch Credits und Bildquellen.";
+				tmpNotSolvedText = "Hier noch Credits und Bildquellen.";
 				tmpMissions.add(new Mission(game, "white.png", 230, 300, 100, 100, 3,
 						tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
 						tmpAnswers, answerKey));
 
 				lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-						+ "johannes.png", 60, 42, 4700, this.game.GROUND_LEVEL, 2,
+						+ "ziel.png", 130, 71, 4700, this.game.GROUND_LEVEL+15, 2,
 						true, tmpMissions));
 
 				
