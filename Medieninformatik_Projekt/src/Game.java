@@ -23,6 +23,12 @@ public class Game {
 	public void loadLevel() {
 		this.hsrwLvl = new Level(this);
 	}
+	
+	// Level restart
+	public void reloadLevel() {
+		sumCreditPoints = 0;
+		this.hsrwLvl = new Level(this);
+	}
 
 	// Gedrückte Tasten in Array setzen
 	public void keyPressed() {

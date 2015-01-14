@@ -10,6 +10,7 @@ public class Player extends PApplet {
 	final int MAX_X = 340; // Maximal X-Koordinate beim Laufen
 	final int PLAYER_HEIGHT = 60;
 	final int PLAYER_WIDTH = 42;
+	String name;
 
 	// Bilder
 	PImage idleImage;

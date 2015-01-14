@@ -30,8 +30,31 @@ public class Level {
 
 		this.collision = new Collision(this.game);
 		this.hero = new Player(game, 80, this.game.GROUND_LEVEL - 26);
+		
+		// Mission Temp-Variablen
+		ArrayList<Mission> tmpMissions = null;
+		ArrayList<String> tmpAnswers = null;
+		ArrayList<Integer> answerKey = null;
+		String tmpMissionText;
+		String tmpQuestion;
+		String tmpSolvedText;
+		String tmpNotSolvedText;
+		
+		// Info Objekt
+		tmpMissions = new ArrayList<Mission>();
+		tmpAnswers = new ArrayList<String>();
+		answerKey = new ArrayList<Integer>();
+		tmpMissionText = "Manche Objekte im Level haben\nMissionen. Sammel dabei so\nviele CPs wie möglich.\n\nMit beliebiger Taste fortfahren...";
+		tmpQuestion = null;
+		tmpSolvedText = null;
+		tmpNotSolvedText = null;
+		tmpMissions.add(new Mission(game, "white.png", 230, 300, 100, 100, 3,
+				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
+				tmpAnswers, answerKey));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//flagge.png", 35, 36, 140, this.game.GROUND_LEVEL, 2, true, tmpMissions));
 
-		// Objekt 1
+		// Objekte
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "emoji//blume.png", 35, 36, 400, this.game.GROUND_LEVEL, 2, false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
@@ -48,18 +71,18 @@ public class Level {
 				+ "emoji//bus.png", 35, 36, 1300, this.game.GROUND_LEVEL, 2, false));
 
 		// Mission 1 - Tim
-		ArrayList<Mission> tmpMissions = new ArrayList<Mission>();
-		ArrayList<String> tmpAnswers = new ArrayList<String>();
-		ArrayList<Integer> answerKey = new ArrayList<Integer>();
+		tmpMissions = new ArrayList<Mission>();
+		tmpAnswers = new ArrayList<String>();
+		answerKey = new ArrayList<Integer>();
 		answerKey.add(2);
 		tmpAnswers.add("[1] Schwarz");
 		tmpAnswers.add("[2] Blau");
 		tmpAnswers.add("[3] Gelb");
 		tmpAnswers.add("[4] Lila");
-		String tmpMissionText = "Hallo, ich bin Tim ...";
-		String tmpQuestion = "Was ist meine Lieblingsfarbe?";
-		String tmpSolvedText = "Gut geraten!\n5 CPs für dich.";
-		String tmpNotSolvedText = "Ernsthaft?\nKeine CPs für dich!";
+		tmpMissionText = "Hallo, ich bin Tim ...";
+		tmpQuestion = "Was ist meine Lieblingsfarbe?";
+		tmpSolvedText = "Gut geraten!\n5 CPs für dich.";
+		tmpNotSolvedText = "Ernsthaft?\nKeine CPs für dich!";
 		tmpMissions.add(new Mission(game, "white.png", 200, 300, 100, 100, 3,
 				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
 				tmpAnswers, answerKey));
@@ -81,9 +104,9 @@ public class Level {
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "tim.png", 60, 42, 1500, this.game.GROUND_LEVEL, 2, true,
 				tmpMissions));
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "tim.png", 60, 42, 10000, this.game.GROUND_LEVEL, 2, true,
-				tmpMissions));
+//		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+//				+ "tim.png", 60, 42, 1600, this.game.GROUND_LEVEL, 2, true,
+//				tmpMissions));
 
 		// Objekt 2
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
@@ -241,26 +264,30 @@ public class Level {
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "emoji//fernrohr.png", 35, 36, 7300, this.game.GROUND_LEVEL, 2, false));
 
+		
+		
 		// Zieleinlauf
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "hsrw_flag.png", 250, 59, 7870, this.game.GROUND_LEVEL, 2,
+				true));
+		
 				tmpMissions = new ArrayList<Mission>();
 				tmpAnswers = new ArrayList<String>();
 				answerKey = new ArrayList<Integer>();
-				answerKey.add(4);
-				tmpAnswers.add("[1] Kann");
-				tmpAnswers.add("[2] man");
-				tmpAnswers.add("[3] das hier");
-				tmpAnswers.add("[4] wegmachen?");
-				tmpMissionText = "Super! Du hast es geschafft. Oben siehtst\ndu deine gesammelten Creditpoints.";
-				tmpQuestion = "Bla,bla.";
-				tmpSolvedText = "Hier noch Credits und Bildquellen.";
-				tmpNotSolvedText = "\nEin Projekt von Tim Landskron, Marwin Wiegard,\nSarah-Maria Rostalski und Johannes Nolte.\n\nEmojis von https://github.com/twitter/twemoji \n(CC-BY 4.0).";
-				tmpMissions.add(new Mission(game, "white.png", 230, 375, 100, 100, 3,
+				answerKey.add(2);
+				tmpAnswers.add("[1] Level neustarten");
+				tmpAnswers.add("[2] Quellen und Credits");
+				tmpMissionText = "Super! Du hast es geschafft und dabei #CP# Credit Points gesammelt.";
+				tmpQuestion = "\nWähle eine der Optionen:";
+				tmpSolvedText = "\nEin Projekt von Tim Landskron, Marwin Wiegard,\nSarah-Maria Rostalski und Johannes Nolte.\n\nEmojis von https://github.com/twitter/twemoji (CC-BY 4.0).";
+				tmpNotSolvedText = "Levelneustart mit beliebiger Taste ...";
+				tmpMissions.add(new Mission(game, "white.png", 230, 520, 100, 100, 3,
 						tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
 						tmpAnswers, answerKey));
 
 				lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-						+ "ziel.png", 180, 71, 8000, this.game.GROUND_LEVEL+15, 2,
-						true, tmpMissions));
+						+ "hsrw_flag.png", 250, 59, 8000, this.game.GROUND_LEVEL, 2,
+						false, tmpMissions));
 
 				
 		// Random Missions
@@ -275,8 +302,8 @@ public class Level {
 		this.game.app.background(255);
 		this.levelShadowBackground.drawBackground();
 		this.levelBackground.drawBackground();
-		this.hero.drawPlayer();
-
+		
+		// Logo zeichnen
 		this.game.app.noStroke();
 		this.game.app.beginShape();
 		this.game.app.texture(logoImage);
@@ -286,8 +313,9 @@ public class Level {
 		this.game.app.vertex(0 + 15, 30 + 15, 3, 0, 1);
 		this.game.app.endShape();
 
+		// CPs zeichnen
 		this.game.app.textSize(24);
-		this.game.app.text("CreditPoints: " + this.game.sumCreditPoints, 500,
+		this.game.app.text("Credit Points: " + this.game.sumCreditPoints, 500,
 				34, 2);
 		this.game.app.fill(0, 0, 0);
 
@@ -308,6 +336,9 @@ public class Level {
 				}
 			}
 		}
+		
+		// Player zeichnen
+		this.hero.drawPlayer();
 
 		// Funktion für Bewegungen im Level
 		if (inMission == false) {

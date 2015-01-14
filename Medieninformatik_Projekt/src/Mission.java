@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 import processing.core.PImage;
+import java.lang.Thread;
 
 public class Mission {
 	Game game;
@@ -8,6 +9,7 @@ public class Mission {
 	boolean isCompleted;
 	boolean isSolved;
 	boolean isMatched;
+	boolean isDelayed;
 	PImage missionImage;
 	int height;
 	int width;
@@ -58,23 +60,29 @@ public class Mission {
 		this.game.app.endShape();
 		this.game.app.textSize(this.FONTSIZE);
 		this.game.app.fill(0, 0, 0);
-		
+
 		String tmpOutputText = "";
 		if (this.isCompleted == false) {
 			tmpOutputText = this.missionText + "\n\n" + this.questionText;
 
-
 			for (String answer : this.answers) {
 				tmpOutputText = tmpOutputText + "\n" + answer;
 			}
-		} else if (this.isSolved) {			
+		} else if (this.isSolved) {
 			tmpOutputText = this.solvedText;
 		} else if (this.isSolved == false) {
 			tmpOutputText = this.notSolvedText;
 		}
-		
-		this.game.app.text(tmpOutputText, this.x + 15,
-				this.y + 25, this.z);
+
+		// Info-Missionen
+		if (this.answerKey.size() == 0) {
+			tmpOutputText = this.missionText;
+		}
+
+		// Ggf. Platzhalter ersetzen
+		tmpOutputText = tmpOutputText.replace("#CP#", this.game.sumCreditPoints
+				+ "");
+		this.game.app.text(tmpOutputText, this.x + 15, this.y + 25, this.z);
 	}
 
 	public void checkMission() {
@@ -83,7 +91,7 @@ public class Mission {
 		if (this.game.hsrwLvl.inMission && this.isCompleted == false) {
 			if (this.game.keyboard[4] ^ this.game.keyboard[5]
 					^ this.game.keyboard[6] ^ this.game.keyboard[7]) {
-				
+
 				// Mehrere richtige Antworten möglich
 				for (Integer key : this.answerKey) {
 					if (this.game.keyboard[4] && key == 1) {
@@ -102,11 +110,29 @@ public class Mission {
 				}
 
 				this.isCompleted = true;
+			} else if (this.answerKey.size() == 0) {
+				this.isCompleted = true;
 			}
 
 		} else if (this.isCompleted) {
-			if (this.game.keyboard[0] || this.game.keyboard[1] || this.game.keyboard[2]) {
+			// Delay für Info-Missionen
+			if(this.isDelayed == false && this.answerKey.size() == 0) {
+				this.game.app.delay(2000);
+				this.game.keyboard = new boolean[this.game.keyboard.length];
+				this.isDelayed = true;
+			}
+			
+			if (this.game.keyboard[0] || this.game.keyboard[1]
+					|| this.game.keyboard[2]) {
+
 				this.isPlayed = true;
+
+				// Letzte Mission? Neustarten ...
+				if (this.game.hsrwLvl.lvlObjects
+						.get(this.game.hsrwLvl.lvlObjects.size() - 1).mission
+						.equals(this)) {
+					this.game.reloadLevel();
+				}
 			}
 
 		}

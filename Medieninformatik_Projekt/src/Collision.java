@@ -24,6 +24,10 @@ public class Collision {
 				if ((player.y >= (lvlObject.y - lvlObject.height) && player.y <= lvlObject.y)) {
 					player.states[2] = true;
 					lvlObject.collided = true;
+					
+					if(lvlObject.goThrough) {
+						player.states[2] = false;
+					}
 
 					if (lvlObject.mission != null) {
 						if(lvlObject.mission.isPlayed == false) {
