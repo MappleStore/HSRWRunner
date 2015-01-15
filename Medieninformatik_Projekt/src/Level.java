@@ -40,20 +40,24 @@ public class Level {
 		String tmpSolvedText;
 		String tmpNotSolvedText;
 		
+		
 		// Info Objekt
 		tmpMissions = new ArrayList<Mission>();
 		tmpAnswers = new ArrayList<String>();
 		answerKey = new ArrayList<Integer>();
-		tmpMissionText = "Hallo im HSRWRunner!\nLaufe über den Campus und löse die Aufgaben, die dir gestellt werden.\nBeantworte sie richtig um möglichst viele Creditpoints\nzu Sammeln!\n\nBenutze die Pfeiltasten zum Steuern und drücke nun\neine beliebige Taste zum Starten.\n\nViel Spaß!";
+		tmpMissionText = "Willkommen auf dem Campus der HSRW!\n\nEs ist kurz vor Ende des Semesters aber blöderweise fehlen dir noch ein\npaar Creditpoints. Laufe über den Campus und löse die Aufgaben, die\ndir gestellt werden. Für jede richtig Antwort erhältst du CPs!\n\nDrücke nun [ENTER] zum Starten und benutze die\nPfeiltasten zum Steuern.\n\nViel Spaß!";
 		tmpQuestion = null;
 		tmpSolvedText = null;
 		tmpNotSolvedText = null;
-		tmpMissions.add(new Mission(game, "white.png", 230, 520, 100, 100, 3,
+		tmpMissions.add(new Mission(game, "white.png", 230, 530, 100, 100, 3,
 				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
 				tmpAnswers, answerKey));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//flagge.png", 35, 36, 140, this.game.GROUND_LEVEL, 2, true, tmpMissions));
+				+ "emoji//transparent.png", 1, 1, 100, this.game.GROUND_LEVEL, 2, true, tmpMissions));
 
+		// Startflagge
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji//flagge.png", 35, 36, 125, this.game.GROUND_LEVEL, 2, false));
 		// Objekte
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "emoji//blume.png", 35, 36, 400, this.game.GROUND_LEVEL, 2, false));
@@ -164,7 +168,7 @@ public class Level {
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "emoji//CD.png", 35, 36, 2790, this.game.GROUND_LEVEL-70, 2, false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//cloud.png", 35, 36, 2770, this.game.GROUND_LEVEL-105, 2, false));
+				+ "emoji//kugel.png", 35, 36, 2770, this.game.GROUND_LEVEL-105, 2, false));
 
 
 		// Prof 1
@@ -279,7 +283,7 @@ public class Level {
 				tmpAnswers.add("[2] Quellen und Credits ansehen");
 				tmpMissionText = "Super! Du hast es geschafft und dabei #CP# Credit Points gesammelt.";
 				tmpQuestion = "\nWähle eine der Optionen:";
-				tmpSolvedText = "\nEin Projekt von Tim Landskron, Marwin Wiegard,\nSarah-Maria Rostalski und Johannes Nolte.\n\nEmojis von https://github.com/twitter/twemoji (CC-BY 4.0).\n\nDrücke eine beliebige Taste zum Neustart.";
+				tmpSolvedText = "\nEin Projekt von Tim Landskron, Marwin Wiegard,\nSarah-Maria Rostalski und Johannes Nolte.\n\nEmojis von https://github.com/twitter/twemoji (CC-BY 4.0).\n\nDrücke eine Pfeil-Taste zum Neustart.";
 				tmpNotSolvedText = "Levelneustart mit beliebiger Taste ...";
 				tmpMissions.add(new Mission(game, "white.png", 230, 520, 100, 100, 3,
 						tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
