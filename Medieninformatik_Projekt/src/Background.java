@@ -1,3 +1,4 @@
+import processing.core.PConstants;
 import processing.core.PImage;
 
 public class Background {
@@ -23,7 +24,7 @@ public class Background {
 	public void drawBackground() {
 		this.game.app.noStroke();
 		
-		this.game.app.beginShape(this.game.app.QUADS);
+		this.game.app.beginShape(PConstants.QUADS);
 		this.game.app.texture(this.backgroundImage);
 		this.game.app.vertex(this.x, this.y + 0, 1, 0, 0);
 		this.game.app.vertex(this.x + this.backgroundImage.width, this.y + 0, 1, 1, 0);
@@ -32,7 +33,7 @@ public class Background {
 		this.game.app.endShape();
 
 		// Endloser Hintergrund 
-		this.game.app.beginShape(this.game.app.QUADS);
+		this.game.app.beginShape(PConstants.QUADS);
 		this.game.app.texture(this.backgroundImage);
 		this.game.app.vertex(this.x + this.backgroundImage.width, this.y + 0, 1, 0, 0);
 		this.game.app.vertex(this.x + this.backgroundImage.width * 2, this.y + 0, 1, 1, 0);

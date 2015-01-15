@@ -3,8 +3,6 @@ import java.util.ArrayList;
 import processing.core.PConstants;
 import processing.core.PImage;
 
-import java.lang.Thread;
-
 public class Mission {
 	Game game;
 	boolean isPlayed;
