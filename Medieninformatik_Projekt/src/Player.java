@@ -1,7 +1,7 @@
-import processing.core.PApplet;
+import processing.core.PConstants;
 import processing.core.PImage;
 
-public class Player extends PApplet {
+public class Player {
 	Game game;
 
 	final int JUMP_HEIGHT = 60;
@@ -89,7 +89,7 @@ public class Player extends PApplet {
 		// Vorwärts
 		if (this.states[4] == false) {
 			this.game.app.noStroke();
-			this.game.app.beginShape(this.game.app.QUADS);
+			this.game.app.beginShape(PConstants.QUADS);
 			this.game.app.texture(playerImage);
 			this.game.app.vertex(this.x, this.y - this.PLAYER_HEIGHT, 9, 0, 0);
 			this.game.app.vertex(this.x + this.PLAYER_WIDTH, this.y
@@ -99,7 +99,7 @@ public class Player extends PApplet {
 			this.game.app.endShape();
 		} else { // Rückwärts (gespiegelt)
 			this.game.app.noStroke();
-			this.game.app.beginShape(this.game.app.QUADS);
+			this.game.app.beginShape(PConstants.QUADS);
 			this.game.app.texture(playerImage);
 			this.game.app.vertex(this.x, this.y - this.PLAYER_HEIGHT, 9, 1, 0);
 			this.game.app.vertex(this.x + this.PLAYER_WIDTH, this.y

@@ -1,10 +1,20 @@
 import processing.core.PApplet;
-import processing.core.PImage;
 
 public class HsrwRunner extends PApplet {
+	/**
+	 * HSRWRunner
+	 */
+	private static final long serialVersionUID = 1L;
 	Game game = null;
+	
+	public static void main(String[] args) {
+		PApplet.main("HsrwRunner");
+	}
 
 	public void setup() {
+		frame.setTitle("HSRWRunner v1.0"); 
+//		ImageIcon titlebaricon = new ImageIcon(loadBytes("myicon.gif"));
+//		frame.setIconImage(titlebaricon.getImage());
 		this.game = new Game(this);
 		size(game.WINDOW_WIDTH, game.WINDOW_HEIGHT, P3D);
 		textureMode(NORMAL);
@@ -13,7 +23,7 @@ public class HsrwRunner extends PApplet {
 	}
 
 	public void draw() {
-		frameRate(60);
+		frameRate(36);
 		background(255);
 		this.game.hsrwLvl.drawLevel();
 

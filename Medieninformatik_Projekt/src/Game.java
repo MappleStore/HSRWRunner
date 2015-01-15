@@ -1,8 +1,9 @@
 import processing.core.PApplet;
+import processing.core.PConstants;
 
 public class Game {
 	PApplet app = null;
-	final String DEFAULT_IMAGEPATH = "..\\media\\images\\";
+	final String DEFAULT_IMAGEPATH = "\\media\\images\\";
 	final int GRAVITY = 6;
 	final int WINDOW_HEIGHT = 480;
 	final int WINDOW_WIDTH = 720;
@@ -34,16 +35,16 @@ public class Game {
 	public void keyPressed() {
 		
 	//	if (this.app.key == this.app.CODED) {
-			if (this.app.keyCode == this.app.RIGHT) {
+			if (this.app.keyCode == PConstants.RIGHT) {
 				this.keyboard[0] = true;
 			}
-			if (this.app.keyCode == this.app.LEFT) {
+			if (this.app.keyCode == PConstants.LEFT) {
 				this.keyboard[1] = true;
 			}
-			if (this.app.keyCode == this.app.UP) {
+			if (this.app.keyCode == PConstants.UP) {
 				this.keyboard[2] = true;
 			}
-			if (this.app.keyCode == this.app.DOWN) {
+			if (this.app.keyCode == PConstants.DOWN) {
 				this.keyboard[3] = true;
 			}
 			if (this.app.keyCode == 49) {
@@ -65,16 +66,16 @@ public class Game {
 	public void keyReleased() {
 		
 	//	if (this.app.key == this.app.CODED) {
-			if (this.app.keyCode == this.app.RIGHT) {
+			if (this.app.keyCode == PConstants.RIGHT) {
 				this.keyboard[0] = false;
 			}
-			if (this.app.keyCode == this.app.LEFT) {
+			if (this.app.keyCode == PConstants.LEFT) {
 				this.keyboard[1] = false;
 			}
-			if (this.app.keyCode == this.app.UP) {
+			if (this.app.keyCode == PConstants.UP) {
 				this.keyboard[2] = false;
 			}
-			if (this.app.keyCode == this.app.DOWN) {
+			if (this.app.keyCode == PConstants.DOWN) {
 				this.keyboard[3] = false;
 			}
 			if (this.app.keyCode == 49) {

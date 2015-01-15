@@ -29,7 +29,7 @@ public class Level {
 				+ "mainbg.png");
 
 		this.collision = new Collision(this.game);
-		this.hero = new Player(game, 80, this.game.GROUND_LEVEL - 26);
+		this.hero = new Player(game, 80, this.game.GROUND_LEVEL);
 		
 		// Mission Temp-Variablen
 		ArrayList<Mission> tmpMissions = null;
@@ -52,12 +52,9 @@ public class Level {
 		tmpMissions.add(new Mission(game, "white.png", 230, 530, 100, 100, 3,
 				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
 				tmpAnswers, answerKey));
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//transparent.png", 1, 1, 100, this.game.GROUND_LEVEL, 2, true, tmpMissions));
-
 		// Startflagge
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//flagge.png", 35, 36, 125, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji//flagge.png", 35, 36, 110, this.game.GROUND_LEVEL, 2, true, tmpMissions));
 		// Objekte
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "emoji//blume.png", 35, 36, 400, this.game.GROUND_LEVEL, 2, false));
