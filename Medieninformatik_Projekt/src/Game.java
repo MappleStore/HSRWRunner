@@ -3,7 +3,8 @@ import processing.core.PConstants;
 
 public class Game {
 	PApplet app = null;
-	final String DEFAULT_IMAGEPATH = "\\media\\images\\";
+	final String DEFAULT_IMAGEPATH = Game.class.getResource("/media/images/")
+			.toString();
 	final int GRAVITY = 6;
 	final int WINDOW_HEIGHT = 480;
 	final int WINDOW_WIDTH = 720;
@@ -15,8 +16,8 @@ public class Game {
 
 	// Spiel starten
 	public Game(PApplet parentApplet) {
-		// Rechts, Links, Oben, Unten, 1, 2, 3, 4
-		this.keyboard = new boolean[8];
+		// Rechts, Links, Oben, Unten, 1, 2, 3, 4, Enter
+		this.keyboard = new boolean[9];
 		this.app = parentApplet;
 	}
 
@@ -24,7 +25,7 @@ public class Game {
 	public void loadLevel() {
 		this.hsrwLvl = new Level(this);
 	}
-	
+
 	// Level restart
 	public void reloadLevel() {
 		sumCreditPoints = 0;
@@ -33,64 +34,66 @@ public class Game {
 
 	// Gedrückte Tasten in Array setzen
 	public void keyPressed() {
-		
-	//	if (this.app.key == this.app.CODED) {
-			if (this.app.keyCode == PConstants.RIGHT) {
-				this.keyboard[0] = true;
-			}
-			if (this.app.keyCode == PConstants.LEFT) {
-				this.keyboard[1] = true;
-			}
-			if (this.app.keyCode == PConstants.UP) {
-				this.keyboard[2] = true;
-			}
-			if (this.app.keyCode == PConstants.DOWN) {
-				this.keyboard[3] = true;
-			}
-			if (this.app.keyCode == 49) {
-				this.keyboard[4] = true;
-			}
-			if (this.app.keyCode == 50) {
-				this.keyboard[5] = true;
-			}
-			if (this.app.keyCode == 51) {
-				this.keyboard[6] = true;
-			}
-			if (this.app.keyCode == 52) {
-				this.keyboard[7] = true;
-			}
-		//}
+		if (this.app.keyCode == PConstants.RIGHT) {
+			this.keyboard[0] = true;
+		}
+		if (this.app.keyCode == PConstants.LEFT) {
+			this.keyboard[1] = true;
+		}
+		if (this.app.keyCode == PConstants.UP) {
+			this.keyboard[2] = true;
+		}
+		if (this.app.keyCode == PConstants.DOWN) {
+			this.keyboard[3] = true;
+		}
+		if (this.app.keyCode == 49) {
+			this.keyboard[4] = true;
+		}
+		if (this.app.keyCode == 50) {
+			this.keyboard[5] = true;
+		}
+		if (this.app.keyCode == 51) {
+			this.keyboard[6] = true;
+		}
+		if (this.app.keyCode == 52) {
+			this.keyboard[7] = true;
+		}
+		if (this.app.keyCode == PConstants.ENTER
+				|| this.app.keyCode == PConstants.RETURN) {
+			this.keyboard[8] = true;
+		}
 	}
 
 	// Nicht mehr gedrückte Tasten in Array setzen
 	public void keyReleased() {
-		
-	//	if (this.app.key == this.app.CODED) {
-			if (this.app.keyCode == PConstants.RIGHT) {
-				this.keyboard[0] = false;
-			}
-			if (this.app.keyCode == PConstants.LEFT) {
-				this.keyboard[1] = false;
-			}
-			if (this.app.keyCode == PConstants.UP) {
-				this.keyboard[2] = false;
-			}
-			if (this.app.keyCode == PConstants.DOWN) {
-				this.keyboard[3] = false;
-			}
-			if (this.app.keyCode == 49) {
-				this.keyboard[4] = false;
-			}
-			if (this.app.keyCode == 50) {
-				this.keyboard[5] = false;
-			}
-			if (this.app.keyCode == 51) {
-				this.keyboard[6] = false;
-			}
-			if (this.app.keyCode == 52) {
-				this.keyboard[7] = false;
-			}
-		//}
+		if (this.app.keyCode == PConstants.RIGHT) {
+			this.keyboard[0] = false;
+		}
+		if (this.app.keyCode == PConstants.LEFT) {
+			this.keyboard[1] = false;
+		}
+		if (this.app.keyCode == PConstants.UP) {
+			this.keyboard[2] = false;
+		}
+		if (this.app.keyCode == PConstants.DOWN) {
+			this.keyboard[3] = false;
+		}
+		if (this.app.keyCode == 49) {
+			this.keyboard[4] = false;
+		}
+		if (this.app.keyCode == 50) {
+			this.keyboard[5] = false;
+		}
+		if (this.app.keyCode == 51) {
+			this.keyboard[6] = false;
+		}
+		if (this.app.keyCode == 52) {
+			this.keyboard[7] = false;
+		}
+		if (this.app.keyCode == PConstants.ENTER
+				|| this.app.keyCode == PConstants.RETURN) {
+			this.keyboard[8] = false;
+		}
 	}
 
 }

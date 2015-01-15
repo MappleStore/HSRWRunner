@@ -30,7 +30,7 @@ public class Level {
 
 		this.collision = new Collision(this.game);
 		this.hero = new Player(game, 80, this.game.GROUND_LEVEL);
-		
+
 		// Mission Temp-Variablen
 		ArrayList<Mission> tmpMissions = null;
 		ArrayList<String> tmpAnswers = null;
@@ -39,8 +39,7 @@ public class Level {
 		String tmpQuestion;
 		String tmpSolvedText;
 		String tmpNotSolvedText;
-		
-		
+
 		// Info Objekt
 		tmpMissions = new ArrayList<Mission>();
 		tmpAnswers = new ArrayList<String>();
@@ -49,27 +48,35 @@ public class Level {
 		tmpQuestion = null;
 		tmpSolvedText = null;
 		tmpNotSolvedText = null;
-		tmpMissions.add(new Mission(game, "white.png", 230, 530, 100, 100, 3,
-				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
-				tmpAnswers, answerKey));
+		tmpMissions.add(new Mission(game, 5, "white.png", 230, 530, 100, 100,
+				3, tmpMissionText, tmpQuestion, tmpSolvedText,
+				tmpNotSolvedText, tmpAnswers, answerKey));
 		// Startflagge
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//flagge.png", 35, 36, 110, this.game.GROUND_LEVEL, 2, true, tmpMissions));
+				+ "emoji/flagge.png", 35, 36, 110, this.game.GROUND_LEVEL, 2,
+				true, tmpMissions));
 		// Objekte
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//blume.png", 35, 36, 400, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji/blume.png", 35, 36, 400, this.game.GROUND_LEVEL, 2,
+				false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//poop.png", 35, 36, 600, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji/poop.png", 35, 36, 600, this.game.GROUND_LEVEL, 2,
+				false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//frosch.png", 35, 36, 750, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji/frosch.png", 35, 36, 750, this.game.GROUND_LEVEL, 2,
+				false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//mail.png", 35, 36, 1065, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji/mail.png", 35, 36, 1065, this.game.GROUND_LEVEL, 2,
+				false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//mail.png", 35, 36, 1110, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji/mail.png", 35, 36, 1110, this.game.GROUND_LEVEL, 2,
+				false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//affe.png", 35, 36, 1090, this.game.GROUND_LEVEL-35, 2, false));
+				+ "emoji/affe.png", 35, 36, 1090, this.game.GROUND_LEVEL - 35,
+				2, false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//bus.png", 35, 36, 1300, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji/bus.png", 35, 36, 1300, this.game.GROUND_LEVEL, 2,
+				false));
 
 		// Mission 1 - Tim
 		tmpMissions = new ArrayList<Mission>();
@@ -84,9 +91,9 @@ public class Level {
 		tmpQuestion = "Was ist meine Lieblingsfarbe?";
 		tmpSolvedText = "Gut geraten!\n5 CPs für dich.";
 		tmpNotSolvedText = "Ernsthaft?\nKeine CPs für dich!";
-		tmpMissions.add(new Mission(game, "white.png", 200, 300, 100, 100, 3,
-				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
-				tmpAnswers, answerKey));
+		tmpMissions.add(new Mission(game, 5, "white.png", 200, 300, 100, 100,
+				3, tmpMissionText, tmpQuestion, tmpSolvedText,
+				tmpNotSolvedText, tmpAnswers, answerKey));
 		tmpAnswers = new ArrayList<String>();
 		answerKey = new ArrayList<Integer>();
 		answerKey.add(1);
@@ -98,22 +105,24 @@ public class Level {
 		tmpQuestion = "Was ist mein Hobby?";
 		tmpSolvedText = "Gut geraten!\n5 CPs für dich.";
 		tmpNotSolvedText = "Ernsthaft?\nKeine CPs für dich!";
-		tmpMissions.add(new Mission(game, "white.png", 200, 300, 100, 100, 3,
-				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
-				tmpAnswers, answerKey));
+		tmpMissions.add(new Mission(game, 5, "white.png", 200, 300, 100, 100,
+				3, tmpMissionText, tmpQuestion, tmpSolvedText,
+				tmpNotSolvedText, tmpAnswers, answerKey));
 
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "tim.png", 60, 42, 1500, this.game.GROUND_LEVEL, 2, true,
 				tmpMissions));
-//		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-//				+ "tim.png", 60, 42, 1600, this.game.GROUND_LEVEL, 2, true,
-//				tmpMissions));
+		// lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+		// + "tim.png", 60, 42, 1600, this.game.GROUND_LEVEL, 2, true,
+		// tmpMissions));
 
 		// Objekt 2
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//burger.png", 35, 36, 1800, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji/burger.png", 35, 36, 1800, this.game.GROUND_LEVEL, 2,
+				false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//poop.png", 35, 36, 2000, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji/poop.png", 35, 36, 2000, this.game.GROUND_LEVEL, 2,
+				false));
 
 		// Mission 2 - Marwin
 		tmpMissions = new ArrayList<Mission>();
@@ -128,59 +137,75 @@ public class Level {
 		tmpQuestion = "Wer hat auf YouTube den\nMarienkäfer \"Marvin\" erfunden?";
 		tmpSolvedText = "Ich heiße Marwin!\n5 CPs an den Marienkäfer.";
 		tmpNotSolvedText = "Ist das so?\nKeine extra CPs für dich!";
-		tmpMissions.add(new Mission(game, "white.png", 230, 300, 100, 100, 3,
-				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
-				tmpAnswers, answerKey));
+		tmpMissions.add(new Mission(game, 5, "white.png", 230, 300, 100, 100,
+				3, tmpMissionText, tmpQuestion, tmpSolvedText,
+				tmpNotSolvedText, tmpAnswers, answerKey));
 
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "marwin.png", 60, 42, 2300, this.game.GROUND_LEVEL, 2, true,
 				tmpMissions));
 
-		//Objekte 4
+		// Objekte 4
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//frosch.png", 35, 36, 2400, this.game.GROUND_LEVEL, 2, false));
-		
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//postbox.png", 35, 36, 2660, this.game.GROUND_LEVEL, 2, false));
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//postbox.png", 35, 36, 2700, this.game.GROUND_LEVEL, 2, false));
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//postbox.png", 35, 36, 2745, this.game.GROUND_LEVEL, 2, false));
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//postbox.png", 35, 36, 2790, this.game.GROUND_LEVEL, 2, false));
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//postbox.png", 35, 36, 2835, this.game.GROUND_LEVEL, 2, false));
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//postbox.png", 35, 36, 2875, this.game.GROUND_LEVEL, 2, false));
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//diskette.png", 35, 36, 2700, this.game.GROUND_LEVEL-35, 2, false));
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//diskette.png", 35, 36, 2745, this.game.GROUND_LEVEL-35, 2, false));
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//diskette.png", 35, 36, 2790, this.game.GROUND_LEVEL-35, 2, false));
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//diskette.png", 35, 36, 2835, this.game.GROUND_LEVEL-35, 2, false));
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//CD.png", 35, 36, 2745, this.game.GROUND_LEVEL-70, 2, false));
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//CD.png", 35, 36, 2790, this.game.GROUND_LEVEL-70, 2, false));
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//kugel.png", 35, 36, 2770, this.game.GROUND_LEVEL-105, 2, false));
+				+ "emoji/frosch.png", 35, 36, 2400, this.game.GROUND_LEVEL, 2,
+				false));
 
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji/postbox.png", 35, 36, 2660, this.game.GROUND_LEVEL, 2,
+				false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji/postbox.png", 35, 36, 2700, this.game.GROUND_LEVEL, 2,
+				false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji/postbox.png", 35, 36, 2745, this.game.GROUND_LEVEL, 2,
+				false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji/postbox.png", 35, 36, 2790, this.game.GROUND_LEVEL, 2,
+				false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji/postbox.png", 35, 36, 2835, this.game.GROUND_LEVEL, 2,
+				false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji/postbox.png", 35, 36, 2875, this.game.GROUND_LEVEL, 2,
+				false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji/diskette.png", 35, 36, 2700,
+				this.game.GROUND_LEVEL - 35, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji/diskette.png", 35, 36, 2745,
+				this.game.GROUND_LEVEL - 35, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji/diskette.png", 35, 36, 2790,
+				this.game.GROUND_LEVEL - 35, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji/diskette.png", 35, 36, 2835,
+				this.game.GROUND_LEVEL - 35, 2, false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji/CD.png", 35, 36, 2745, this.game.GROUND_LEVEL - 70, 2,
+				false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji/CD.png", 35, 36, 2790, this.game.GROUND_LEVEL - 70, 2,
+				false));
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji/kugel.png", 35, 36, 2770,
+				this.game.GROUND_LEVEL - 105, 2, false));
 
 		// Prof 1
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//profplatzhalter.png", 40, 36, 3500, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji/profplatzhalter.png", 40, 36, 3500,
+				this.game.GROUND_LEVEL, 2, false));
 
-		//Objekte
+		// Objekte
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//poop.png", 35, 36, 3700, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji/poop.png", 35, 36, 3700, this.game.GROUND_LEVEL, 2,
+				false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//blume.png", 35, 36, 3800, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji/blume.png", 35, 36, 3800, this.game.GROUND_LEVEL, 2,
+				false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//tv.png", 35, 36, 4100, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji/tv.png", 35, 36, 4100, this.game.GROUND_LEVEL, 2,
+				false));
 
-		
 		// Mission 3 - Sarah
 		tmpMissions = new ArrayList<Mission>();
 		tmpAnswers = new ArrayList<String>();
@@ -194,41 +219,50 @@ public class Level {
 		tmpQuestion = "Welchen Film habe ich aber nicht\nim Regal stehen?";
 		tmpSolvedText = "5 filmreife CPs!";
 		tmpNotSolvedText = "Keine CPs, kein Oscar.";
-		tmpMissions.add(new Mission(game, "white.png", 200, 300, 100, 100, 3,
-				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
-				tmpAnswers, answerKey));
+		tmpMissions.add(new Mission(game, 5, "white.png", 200, 300, 100, 100,
+				3, tmpMissionText, tmpQuestion, tmpSolvedText,
+				tmpNotSolvedText, tmpAnswers, answerKey));
 
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "sarah.png", 60, 42, 4200, this.game.GROUND_LEVEL, 2, true,
 				tmpMissions));
 
-		//Objekte
+		// Objekte
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//palme.png", 35, 36, 4400, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji/palme.png", 35, 36, 4400, this.game.GROUND_LEVEL, 2,
+				false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//santa.png", 35, 36, 4700, this.game.GROUND_LEVEL, 2, false));
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//H.png", 35, 36, 5000, this.game.GROUND_LEVEL, 2, false));
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//S.png", 35, 36, 5040, this.game.GROUND_LEVEL, 2, false));
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//R.png", 35, 36, 5080, this.game.GROUND_LEVEL, 2, false));
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//W.png", 35, 36, 5120, this.game.GROUND_LEVEL, 2, false));
-
+				+ "emoji/santa.png", 35, 36, 4700, this.game.GROUND_LEVEL, 2,
+				false));
+		lvlObjects
+				.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+						+ "emoji/H.png", 35, 36, 5000, this.game.GROUND_LEVEL,
+						2, false));
+		lvlObjects
+				.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+						+ "emoji/S.png", 35, 36, 5040, this.game.GROUND_LEVEL,
+						2, false));
+		lvlObjects
+				.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+						+ "emoji/R.png", 35, 36, 5080, this.game.GROUND_LEVEL,
+						2, false));
+		lvlObjects
+				.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+						+ "emoji/W.png", 35, 36, 5120, this.game.GROUND_LEVEL,
+						2, false));
 
 		// Prof 2
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//profplatzhalter.png", 40, 36, 5500, this.game.GROUND_LEVEL, 2, false));
-		
+				+ "emoji/profplatzhalter.png", 40, 36, 5500,
+				this.game.GROUND_LEVEL, 2, false));
+
 		// Objekte
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//burger.png", 35, 36, 5900, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji/burger.png", 35, 36, 5900, this.game.GROUND_LEVEL, 2,
+				false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//frosch.png", 35, 36, 5600, this.game.GROUND_LEVEL, 2, false));
-
-
-
+				+ "emoji/frosch.png", 35, 36, 5600, this.game.GROUND_LEVEL, 2,
+				false));
 
 		// Mission 4 - Johannes
 		tmpMissions = new ArrayList<Mission>();
@@ -243,54 +277,55 @@ public class Level {
 		tmpQuestion = "Kannst du mir sagen, wer kein\nKölner ist?";
 		tmpSolvedText = "Richtig. Hennes ist das Maskottchen\ndes FC, ein Geißbock, Tünnes und\nSchäl sind Figuren aus dem Kölschen\nHännesschen Theater.";
 		tmpNotSolvedText = "Falsch, alle sind Kölner.\nHennes ist das Maskottchen des FC,\nein Geißbock, Tünnes und Schäl\nsind Figuren aus dem Kölschen\nHännesschen Theater.";
-		tmpMissions.add(new Mission(game, "white.png", 230, 300, 100, 100, 3,
-				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
-				tmpAnswers, answerKey));
+		tmpMissions.add(new Mission(game, 5, "white.png", 230, 300, 100, 100,
+				3, tmpMissionText, tmpQuestion, tmpSolvedText,
+				tmpNotSolvedText, tmpAnswers, answerKey));
 
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "johannes.png", 60, 42, 6100, this.game.GROUND_LEVEL, 2,
 				true, tmpMissions));
 
-		//Objekte
+		// Objekte
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//postbox.png", 35, 36, 6500, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji/postbox.png", 35, 36, 6500, this.game.GROUND_LEVEL, 2,
+				false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//bus.png", 35, 36, 6800, this.game.GROUND_LEVEL, 2, false));
-		
+				+ "emoji/bus.png", 35, 36, 6800, this.game.GROUND_LEVEL, 2,
+				false));
+
 		// Prof 3
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//profplatzhalter.png", 40, 36, 7000, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji/profplatzhalter.png", 40, 36, 7000,
+				this.game.GROUND_LEVEL, 2, false));
 
 		// Objekte
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji//fernrohr.png", 35, 36, 7300, this.game.GROUND_LEVEL, 2, false));
+				+ "emoji/fernrohr.png", 35, 36, 7300, this.game.GROUND_LEVEL,
+				2, false));
 
-		
-		
 		// Zieleinlauf
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "hsrw_flag.png", 250, 59, 7870, this.game.GROUND_LEVEL, 2,
 				true));
-		
-				tmpMissions = new ArrayList<Mission>();
-				tmpAnswers = new ArrayList<String>();
-				answerKey = new ArrayList<Integer>();
-				answerKey.add(2);
-				tmpAnswers.add("[1] Level neustarten");
-				tmpAnswers.add("[2] Quellen und Credits ansehen");
-				tmpMissionText = "Super! Du hast es geschafft und dabei #CP# Credit Points gesammelt.";
-				tmpQuestion = "\nWähle eine der Optionen:";
-				tmpSolvedText = "\nEin Projekt von Tim Landskron, Marwin Wiegard,\nSarah-Maria Rostalski und Johannes Nolte.\n\nEmojis von https://github.com/twitter/twemoji (CC-BY 4.0).\n\nDrücke eine Pfeil-Taste zum Neustart.";
-				tmpNotSolvedText = "Levelneustart mit beliebiger Taste ...";
-				tmpMissions.add(new Mission(game, "white.png", 230, 520, 100, 100, 3,
-						tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
-						tmpAnswers, answerKey));
 
-				lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-						+ "hsrw_flag.png", 250, 59, 8000, this.game.GROUND_LEVEL, 2,
-						false, tmpMissions));
+		tmpMissions = new ArrayList<Mission>();
+		tmpAnswers = new ArrayList<String>();
+		answerKey = new ArrayList<Integer>();
+		answerKey.add(2);
+		tmpAnswers.add("[1] Level neustarten");
+		tmpAnswers.add("[2] Quellen und Credits ansehen");
+		tmpMissionText = "Super! Du hast es geschafft und dabei #CP# Credit Points gesammelt.";
+		tmpQuestion = "\nWähle eine der Optionen:";
+		tmpSolvedText = "\nEin Projekt von Tim Landskron, Marwin Wiegard,\nSarah-Maria Rostalski und Johannes Nolte.\n\nEmojis von https://github.com/twitter/twemoji (CC-BY 4.0).\n\nDrücke eine Pfeil-Taste zum Neustart.";
+		tmpNotSolvedText = "Levelneustart mit beliebiger Taste ...";
+		tmpMissions.add(new Mission(game, 0, "white.png", 230, 520, 100, 100,
+				3, tmpMissionText, tmpQuestion, tmpSolvedText,
+				tmpNotSolvedText, tmpAnswers, answerKey));
 
-				
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "hsrw_flag.png", 250, 59, 8000, this.game.GROUND_LEVEL, 2,
+				false, tmpMissions));
+
 		// Random Missions
 		for (LvlObject lvlObject : this.lvlObjects) {
 			if (lvlObject.missions != null) {
@@ -303,7 +338,7 @@ public class Level {
 		this.game.app.background(255);
 		this.levelShadowBackground.drawBackground();
 		this.levelBackground.drawBackground();
-		
+
 		// Logo zeichnen
 		this.game.app.noStroke();
 		this.game.app.beginShape();
@@ -337,7 +372,7 @@ public class Level {
 				}
 			}
 		}
-		
+
 		// Player zeichnen
 		this.hero.drawPlayer();
 

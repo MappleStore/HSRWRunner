@@ -1,3 +1,11 @@
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import processing.core.PApplet;
 
 public class HsrwRunner extends PApplet {
@@ -6,27 +14,52 @@ public class HsrwRunner extends PApplet {
 	 */
 	private static final long serialVersionUID = 1L;
 	Game game = null;
-	
+
 	public static void main(String[] args) {
 		PApplet.main("HsrwRunner");
 	}
 
 	public void setup() {
-		frame.setTitle("HSRWRunner v1.0"); 
-//		ImageIcon titlebaricon = new ImageIcon(loadBytes("myicon.gif"));
-//		frame.setIconImage(titlebaricon.getImage());
+		frame.setTitle("HSRWRunner v1.0");
+		// ImageIcon titlebaricon = new ImageIcon(loadBytes("myicon.gif"));
+		// frame.setIconImage(titlebaricon.getImage());
 		this.game = new Game(this);
 		size(game.WINDOW_WIDTH, game.WINDOW_HEIGHT, P3D);
 		textureMode(NORMAL);
 
-		this.game.loadLevel();
+		try {
+			this.game.loadLevel();
+		} catch (Exception ex) {
+			FileWriter fw;
+			try {
+				fw = new FileWriter("exception.txt", false);
+				PrintWriter pw = new PrintWriter(fw);
+				ex.printStackTrace(pw);
+				pw.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
 	}
 
 	public void draw() {
 		frameRate(36);
 		background(255);
-		this.game.hsrwLvl.drawLevel();
-
+		
+		try {
+			this.game.hsrwLvl.drawLevel();
+		} catch (Exception ex) {
+			FileWriter fw;
+			try {
+				fw = new FileWriter("exception.txt", false);
+				PrintWriter pw = new PrintWriter(fw);
+				ex.printStackTrace(pw);
+				pw.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	public void keyPressed() {
@@ -36,8 +69,8 @@ public class HsrwRunner extends PApplet {
 	public void keyReleased() {
 		this.game.keyReleased();
 	}
-	
+
 	public void mouseClicked() {
-		//this.game.app.loop();
+		// this.game.app.loop();
 	}
 }

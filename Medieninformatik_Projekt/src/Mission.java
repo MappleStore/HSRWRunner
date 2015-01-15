@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 
+import processing.core.PConstants;
 import processing.core.PImage;
+
 import java.lang.Thread;
 
 public class Mission {
@@ -22,15 +24,15 @@ public class Mission {
 	ArrayList<Integer> answerKey;
 	String solvedText;
 	String notSolvedText;
-
-	final int CREDITPOINTS = 5;
+	int creditPoints = 5;
 	final int FONTSIZE = 14;
 
-	public Mission(Game game, String texturePath, int height, int width, int x,
+	public Mission(Game game, int creditPoints, String texturePath, int height, int width, int x,
 			int y, int z, String missionText, String questionText,
 			String solvedText, String notSolvedText, ArrayList<String> answers,
 			ArrayList<Integer> answerKey) {
 		this.game = game;
+		this.creditPoints = creditPoints;
 		this.isPlayed = false;
 		this.missionImage = this.game.app.loadImage(game.DEFAULT_IMAGEPATH
 				+ texturePath);
@@ -50,7 +52,7 @@ public class Mission {
 
 	public void drawMission() {
 		this.game.app.noStroke();
-		this.game.app.beginShape(this.game.app.QUADS);
+		this.game.app.beginShape(PConstants.QUADS);
 		this.game.app.texture(this.missionImage);
 		this.game.app.vertex(this.x, this.y, this.z, 0, 0);
 		this.game.app.vertex(this.x + this.width, this.y, this.z, 1, 0);
@@ -95,16 +97,16 @@ public class Mission {
 				// Mehrere richtige Antworten möglich
 				for (Integer key : this.answerKey) {
 					if (this.game.keyboard[4] && key == 1) {
-						this.game.sumCreditPoints += this.CREDITPOINTS;
+						this.game.sumCreditPoints += this.creditPoints;
 						this.isSolved = true;
 					} else if (this.game.keyboard[5] && key == 2) {
-						this.game.sumCreditPoints += this.CREDITPOINTS;
+						this.game.sumCreditPoints += this.creditPoints;
 						this.isSolved = true;
 					} else if (this.game.keyboard[6] && key == 3) {
-						this.game.sumCreditPoints += this.CREDITPOINTS;
+						this.game.sumCreditPoints += this.creditPoints;
 						this.isSolved = true;
 					} else if (this.game.keyboard[7] && key == 4) {
-						this.game.sumCreditPoints += this.CREDITPOINTS;
+						this.game.sumCreditPoints += this.creditPoints;
 						this.isSolved = true;
 					}
 				}
@@ -123,7 +125,7 @@ public class Mission {
 			}
 			
 			if (this.game.keyboard[0] || this.game.keyboard[1]
-					|| this.game.keyboard[2]) {
+					|| this.game.keyboard[2] || this.game.keyboard[8]) {
 
 				this.isPlayed = true;
 
