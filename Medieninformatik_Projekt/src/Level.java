@@ -44,11 +44,11 @@ public class Level {
 		tmpMissions = new ArrayList<Mission>();
 		tmpAnswers = new ArrayList<String>();
 		answerKey = new ArrayList<Integer>();
-		tmpMissionText = "Manche Objekte im Level haben\nMissionen. Sammel dabei so\nviele CPs wie möglich.\n\nMit beliebiger Taste fortfahren...";
+		tmpMissionText = "Hallo im HSRWRunner!\nLaufe über den Campus und löse die Aufgaben, die dir gestellt werden.\nBeantworte sie richtig um möglichst viele Creditpoints\nzu Sammeln!\n\nBenutze die Pfeiltasten zum Steuern und drücke nun\neine beliebige Taste zum Starten.\n\nViel Spaß!";
 		tmpQuestion = null;
 		tmpSolvedText = null;
 		tmpNotSolvedText = null;
-		tmpMissions.add(new Mission(game, "white.png", 230, 300, 100, 100, 3,
+		tmpMissions.add(new Mission(game, "white.png", 230, 520, 100, 100, 3,
 				tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
 				tmpAnswers, answerKey));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
@@ -276,10 +276,10 @@ public class Level {
 				answerKey = new ArrayList<Integer>();
 				answerKey.add(2);
 				tmpAnswers.add("[1] Level neustarten");
-				tmpAnswers.add("[2] Quellen und Credits");
+				tmpAnswers.add("[2] Quellen und Credits ansehen");
 				tmpMissionText = "Super! Du hast es geschafft und dabei #CP# Credit Points gesammelt.";
 				tmpQuestion = "\nWähle eine der Optionen:";
-				tmpSolvedText = "\nEin Projekt von Tim Landskron, Marwin Wiegard,\nSarah-Maria Rostalski und Johannes Nolte.\n\nEmojis von https://github.com/twitter/twemoji (CC-BY 4.0).";
+				tmpSolvedText = "\nEin Projekt von Tim Landskron, Marwin Wiegard,\nSarah-Maria Rostalski und Johannes Nolte.\n\nEmojis von https://github.com/twitter/twemoji (CC-BY 4.0).\n\nDrücke eine beliebige Taste zum Neustart.";
 				tmpNotSolvedText = "Levelneustart mit beliebiger Taste ...";
 				tmpMissions.add(new Mission(game, "white.png", 230, 520, 100, 100, 3,
 						tmpMissionText, tmpQuestion, tmpSolvedText, tmpNotSolvedText,
