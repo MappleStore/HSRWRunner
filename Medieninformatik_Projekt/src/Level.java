@@ -317,7 +317,7 @@ public class Level {
 		tmpMissionText = "Super! Du hast es geschafft und dabei #CP# Credit Points gesammelt.";
 		tmpQuestion = "\nWähle eine der Optionen:";
 		tmpSolvedText = "\nEin Projekt von Tim Landskron, Marwin Wiegard,\nSarah-Maria Rostalski und Johannes Nolte.\n\nEmojis von https://github.com/twitter/twemoji (CC-BY 4.0).\n\nDrücke eine Pfeil-Taste zum Neustart.";
-		tmpNotSolvedText = "Levelneustart mit beliebiger Taste ...";
+		tmpNotSolvedText = "Bitte drücke eine Pfeiltaste um das Spiel neuzustarten.";
 		tmpMissions.add(new Mission(game, 0, "white.png", 230, 520, 100, 100,
 				3, tmpMissionText, tmpQuestion, tmpSolvedText,
 				tmpNotSolvedText, tmpAnswers, answerKey));
