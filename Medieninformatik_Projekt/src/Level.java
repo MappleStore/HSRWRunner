@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+import ddf.minim.AudioInput;
+import ddf.minim.AudioPlayer;
+import ddf.minim.Minim;
 import processing.core.PImage;
 
 public class Level {
@@ -13,6 +16,13 @@ public class Level {
 	public double time;
 	public boolean inMission;
 	PImage logoImage;
+	
+	// Sounds
+	Minim minim;
+	AudioPlayer playerLevelTheme;
+	AudioPlayer playerHeroJump;
+	AudioPlayer playerHeroRun;
+	AudioPlayer playerCreditPoints;
 
 	public Level() {
 		// default
@@ -21,6 +31,16 @@ public class Level {
 	// Level starten
 	public Level(Game game) {
 		this.game = game;
+		
+		// Level-Sounds
+		minim = new Minim(this.game.app);
+		playerLevelTheme =  minim.loadFile(this.game.DEFAULT_SOUNDPATH + "groove.mp3");
+		playerHeroJump = minim.loadFile(this.game.DEFAULT_SOUNDPATH + "jumpsound.mp3");
+		playerHeroRun = minim.loadFile(this.game.DEFAULT_SOUNDPATH + "jumpsound.mp3");
+		playerCreditPoints =  minim.loadFile(this.game.DEFAULT_SOUNDPATH + "groove.mp3");
+			
+		// Logo, Background, Kollision etc.
+		playerLevelTheme.loop();
 		this.logoImage = this.game.app.loadImage(game.DEFAULT_IMAGEPATH
 				+ "logo.png");
 		this.levelShadowBackground = new Background(game,
@@ -110,10 +130,10 @@ public class Level {
 				tmpNotSolvedText, tmpAnswers, answerKey));
 
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "tim.png", 60, 42, 1500, this.game.GROUND_LEVEL, 2, true,
+				+ "tim.png", 64, 42, 1500, this.game.GROUND_LEVEL, 2, true,
 				tmpMissions));
 		// lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-		// + "tim.png", 60, 42, 1600, this.game.GROUND_LEVEL, 2, true,
+		// + "tim.png", 64, 42, 1600, this.game.GROUND_LEVEL, 2, true,
 		// tmpMissions));
 
 		// Objekt 2
@@ -175,7 +195,7 @@ public class Level {
 				tmpNotSolvedText, tmpAnswers, answerKey));
 
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "marwin.png", 60, 42, 2300, this.game.GROUND_LEVEL, 2, true,
+				+ "marwin.png", 64, 42, 2300, this.game.GROUND_LEVEL, 2, true,
 				tmpMissions));
 
 		// Objekte 4
@@ -236,7 +256,7 @@ public class Level {
 				+ "emoji/blume.png", 35, 36, 3800, this.game.GROUND_LEVEL, 2,
 				false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji/tv.png", 35, 36, 4100, this.game.GROUND_LEVEL, 2,
+				+ "emoji/tv.png", 35, 36, 4050, this.game.GROUND_LEVEL, 2,
 				false));
 
 		// Mission 3 - Sarah
@@ -257,7 +277,7 @@ public class Level {
 				tmpNotSolvedText, tmpAnswers, answerKey));
 
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "sarah.png", 60, 42, 4200, this.game.GROUND_LEVEL, 2, true,
+				+ "sarah.png", 64, 42, 4200, this.game.GROUND_LEVEL, 2, true,
 				tmpMissions));
 
 		// Objekte
@@ -298,6 +318,7 @@ public class Level {
 				false));
 
 		// Mission 4 - Johannes
+		//Frage 1
 		tmpMissions = new ArrayList<Mission>();
 		tmpAnswers = new ArrayList<String>();
 		answerKey = new ArrayList<Integer>();
@@ -313,11 +334,27 @@ public class Level {
 		tmpMissions.add(new Mission(game, 5, "white.png", 230, 300, 100, 100,
 				3, tmpMissionText, tmpQuestion, tmpSolvedText,
 				tmpNotSolvedText, tmpAnswers, answerKey));
+		
+		// Frage 2
+		tmpAnswers = new ArrayList<String>();
+		answerKey = new ArrayList<Integer>();
+		answerKey.add(3);
+		tmpAnswers.add("[1] Kölns erster Bürgermeister.");
+		tmpAnswers.add("[2] Eine Figur aus dem Kölschen Hännesschen Theater");
+		tmpAnswers.add("[3] Ein Geißbock und das Maskottchen des 1. FC Köln.");
+		tmpAnswers.add("[4] Der Hai vom Eishockey-Team Kölner Haie");
+		tmpMissionText = "Hallo, ich bin Johannes und\nkomme aus Köln.";
+		tmpQuestion = "Kannst du mir sagen, wer Hennes ist?";
+		tmpSolvedText = "Richtig. Hennes ist ein echter Geißbock (aktuell\nHennes VIII) und das Maskottchen des FC.\n5 CPs für dich!";
+		tmpNotSolvedText = "Leider falsch. Hennes ist das Maskottchen des FC,\nein Geißbock. Keine CPs für dich.";
+		tmpMissions.add(new Mission(game, 5, "white.png", 230, 400, 100, 100,
+				3, tmpMissionText, tmpQuestion, tmpSolvedText,
+				tmpNotSolvedText, tmpAnswers, answerKey));
 
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "johannes.png", 60, 42, 6100, this.game.GROUND_LEVEL, 2,
+				+ "johannes.png", 64, 42, 6100, this.game.GROUND_LEVEL, 2,
 				true, tmpMissions));
-
+		
 		// Objekte
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "emoji/postbox.png", 35, 36, 6500, this.game.GROUND_LEVEL, 2,
@@ -461,6 +498,9 @@ public class Level {
 				&& (this.game.keyboard[0] || this.game.keyboard[1])) {
 			this.hero.states[3] = false;
 			this.hero.delay++;
+			
+			// Run-Sound
+			//playerHeroRun.play();
 		} else {
 			this.hero.states[3] = true;
 		}
@@ -471,6 +511,10 @@ public class Level {
 			// steht
 			if (this.hero.y == this.game.GROUND_LEVEL || this.hero.states[2]) {
 				this.hero.isJumped = true;
+				
+				// Jump-Sound
+				playerHeroJump.rewind();
+				playerHeroJump.play();
 			}
 		}
 

@@ -17,5 +17,11 @@
 	<classpathentry kind="lib" path="C:/Program Files/Processing/core/library/jogl-all-natives-macosx-universal.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files/Processing/core/library/jogl-all-natives-windows-amd64.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files/Processing/core/library/jogl-all-natives-windows-i586.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Marwin/Documents/GitHub/HSRWRunner/.git/Medieninformatik_Projekt/library/jl1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Marwin/Documents/GitHub/HSRWRunner/.git/Medieninformatik_Projekt/library/jsminim.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Marwin/Documents/GitHub/HSRWRunner/.git/Medieninformatik_Projekt/library/minim.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Marwin/Documents/GitHub/HSRWRunner/.git/Medieninformatik_Projekt/library/mp3spi1.9.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Marwin/Documents/GitHub/HSRWRunner/.git/Medieninformatik_Projekt/library/tritonus_aos.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Marwin/Documents/GitHub/HSRWRunner/.git/Medieninformatik_Projekt/library/tritonus_share.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

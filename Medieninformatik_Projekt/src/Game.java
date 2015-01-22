@@ -1,11 +1,12 @@
+import ddf.minim.*;
 import processing.core.PApplet;
 import processing.core.PConstants;
 
 public class Game {
 	PApplet app = null;
-	final String DEFAULT_IMAGEPATH = Game.class.getResource("/media/images/")
+	final String DEFAULT_IMAGEPATH = HsrwRunner.class.getResource("/media/images/")
 			.toString();
-	final String DEFAULT_SOUNDPATH = Game.class.getResource("/media/sounds/")
+	final String DEFAULT_SOUNDPATH = HsrwRunner.class.getResource("/media/sounds/")
 			.toString();
 	final int GRAVITY = 6;
 	final int WINDOW_HEIGHT = 480;
