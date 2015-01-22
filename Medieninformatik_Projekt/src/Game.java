@@ -5,6 +5,8 @@ public class Game {
 	PApplet app = null;
 	final String DEFAULT_IMAGEPATH = Game.class.getResource("/media/images/")
 			.toString();
+	final String DEFAULT_SOUNDPATH = Game.class.getResource("/media/sounds/")
+			.toString();
 	final int GRAVITY = 6;
 	final int WINDOW_HEIGHT = 480;
 	final int WINDOW_WIDTH = 720;

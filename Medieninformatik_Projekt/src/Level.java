@@ -126,6 +126,8 @@ public class Level {
 
 		// Mission 2 - Marwin
 		tmpMissions = new ArrayList<Mission>();
+		
+		// Frage 1
 		tmpAnswers = new ArrayList<String>();
 		answerKey = new ArrayList<Integer>();
 		answerKey.add(3);
@@ -137,6 +139,37 @@ public class Level {
 		tmpQuestion = "Wer hat auf YouTube den\nMarienkäfer \"Marvin\" erfunden?";
 		tmpSolvedText = "Ich heiße Marwin!\n5 CPs an den Marienkäfer.";
 		tmpNotSolvedText = "Ist das so?\nKeine extra CPs für dich!";
+		tmpMissions.add(new Mission(game, 5, "white.png", 230, 300, 100, 100,
+				3, tmpMissionText, tmpQuestion, tmpSolvedText,
+				tmpNotSolvedText, tmpAnswers, answerKey));
+		
+		// Frage 2
+		tmpAnswers = new ArrayList<String>();
+		answerKey = new ArrayList<Integer>();
+		answerKey.add(1);
+		tmpAnswers.add("[1] Xbox One");
+		tmpAnswers.add("[2] PlayStation 4");
+		tmpAnswers.add("[3] Nintendo Wii U");
+		tmpAnswers.add("[4] Turingmaschine");
+		tmpMissionText = "Grüß dich, ich heiße Marwin. Ich spiele\nneuerdings auf einer Konsole.";
+		tmpQuestion = "Kannst du erraten welche Konsole?";
+		tmpSolvedText = "Goldrichtig, 5 CPs!";
+		tmpNotSolvedText = "Ich bin enttäuscht!\nLeider falsch.";
+		tmpMissions.add(new Mission(game, 5, "white.png", 230, 300, 100, 100,
+				3, tmpMissionText, tmpQuestion, tmpSolvedText,
+				tmpNotSolvedText, tmpAnswers, answerKey));
+		
+		// Frage 3
+		tmpAnswers = new ArrayList<String>();
+		answerKey = new ArrayList<Integer>();
+		answerKey.add(3);
+		tmpAnswers.add("[1] Ja bitte, Johannes.");
+		tmpAnswers.add("[2] Ja bitte, Tim.");
+		tmpAnswers.add("[3] Ja bitte, Marwin.");
+		tmpMissionText = "Hi, du siehst verzweifelt aus.\nDu suchst sicher noch CPs.";
+		tmpQuestion = "Kann ich dir helfen?";
+		tmpSolvedText = "Klar, hier hast du 5 CPs.";
+		tmpNotSolvedText = "Ich heiße nicht so.";
 		tmpMissions.add(new Mission(game, 5, "white.png", 230, 300, 100, 100,
 				3, tmpMissionText, tmpQuestion, tmpSolvedText,
 				tmpNotSolvedText, tmpAnswers, answerKey));
