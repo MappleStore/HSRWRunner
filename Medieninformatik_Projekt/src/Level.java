@@ -70,7 +70,7 @@ public class Level {
 		tmpMissions = new ArrayList<Mission>();
 		tmpAnswers = new ArrayList<String>();
 		answerKey = new ArrayList<Integer>();
-		tmpMissionText = "Willkommen auf dem Campus der HSRW!\n\nEs ist kurz vor Ende des Semesters aber blöderweise fehlen dir noch ein\npaar Creditpoints. Laufe über den Campus und löse die Aufgaben, die\ndir gestellt werden. Für jede richtig Antwort erhältst du CPs!\n\nDrücke nun [ENTER] zum Starten und benutze die\nPfeiltasten zum Steuern.\n\nViel Spaß!";
+		tmpMissionText = "Willkommen auf dem Campus der HSRW!\n\nEs ist kurz vor Ende des Semesters aber leider fehlen dir noch ein\npaar Creditpoints. Laufe über den Campus und löse die Aufgaben, die\ndir gestellt werden. Für jede richtig Antwort erhältst du CPs!\n\nDrücke nun [ENTER] zum Starten und benutze die Pfeiltasten zum\nLaufen und Springen.\n\nViel Spaß!";
 		tmpQuestion = null;
 		tmpSolvedText = null;
 		tmpNotSolvedText = null;
@@ -249,12 +249,10 @@ public class Level {
 				+ "emoji/kugel.png", 35, 36, 2770,
 				this.game.GROUND_LEVEL - 105, 2, false));
 
-		// Prof 1
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji/profplatzhalter.png", 40, 36, 3500,
-				this.game.GROUND_LEVEL, 2, false));
-
 		// Objekte
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji/clipboard.png", 40, 36, 3500,
+				this.game.GROUND_LEVEL, 2, false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "emoji/poop.png", 35, 36, 3700, this.game.GROUND_LEVEL, 2,
 				false));
@@ -310,12 +308,10 @@ public class Level {
 						+ "emoji/W.png", 35, 36, 5120, this.game.GROUND_LEVEL,
 						2, false));
 
-		// Prof 2
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji/profplatzhalter.png", 40, 36, 5500,
-				this.game.GROUND_LEVEL, 2, false));
-
 		// Objekte
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji/affe.png", 40, 36, 5500,
+				this.game.GROUND_LEVEL, 2, false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "emoji/burger.png", 35, 36, 5900, this.game.GROUND_LEVEL, 2,
 				false));
@@ -369,12 +365,10 @@ public class Level {
 				+ "emoji/bus.png", 35, 36, 6800, this.game.GROUND_LEVEL, 2,
 				false));
 
-		// Prof 3
-		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
-				+ "emoji/profplatzhalter.png", 40, 36, 7000,
-				this.game.GROUND_LEVEL, 2, false));
-
 		// Objekte
+		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
+				+ "emoji/lachsmile.png", 40, 36, 7000,
+				this.game.GROUND_LEVEL, 2, false));
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "emoji/fernrohr.png", 35, 36, 7300, this.game.GROUND_LEVEL,
 				2, false));
@@ -392,7 +386,7 @@ public class Level {
 		tmpAnswers.add("[2] Quellen und Credits ansehen");
 		tmpMissionText = "Super! Du hast es geschafft und dabei #CP# Credit Points gesammelt.";
 		tmpQuestion = "\nWähle eine der Optionen:";
-		tmpSolvedText = "\nEin Projekt von Tim Landskron, Marwin Wiegard,\nSarah-Maria Rostalski und Johannes Nolte.\n\nEmojis von https://github.com/twitter/twemoji (CC-BY 4.0).\nSounds und Musik von freesound.org\n\nDrücke eine Pfeil-Taste zum Neustart.";
+		tmpSolvedText = "\nEin Projekt von Tim Landskron, Marwin Wiegard, Sarah-Maria Rostalski\nund Johannes Nolte (Einführung in die Medieninformatik WS14/15).\n\nEmojis von https://github.com/twitter/twemoji (CC-BY 4.0).\nSound-Quellen: http://code.compartmental.net/tools/minim/\nund http://freesound.org/people/soundnimja/sounds/173326/\n\nDrücke eine Pfeil-Taste zum Neustart.";
 		tmpNotSolvedText = "Bitte drücke eine Pfeiltaste um das Spiel neuzustarten.";
 		tmpMissions.add(new Mission(game, 0, "white.png", 230, 520, 100, 100,
 				3, tmpMissionText, tmpQuestion, tmpSolvedText,

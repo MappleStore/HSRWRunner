@@ -1,4 +1,5 @@
 java.lang.NullPointerException
+	at Level.drawLevel(Level.java:452)
 	at HsrwRunner.draw(HsrwRunner.java:50)
 	at processing.core.PApplet.handleDraw(PApplet.java:2386)
 	at processing.opengl.PJOGL$PGLListener.display(PJOGL.java:862)
