@@ -16,7 +16,9 @@ public class Level {
 	public double time;
 	public boolean inMission;
 	PImage logoImage;
-	
+	int delay = 0;
+	final int delayTime = 6;
+
 	// Sounds
 	Minim minim;
 	AudioPlayer playerLevelTheme;
@@ -31,14 +33,18 @@ public class Level {
 	// Level starten
 	public Level(Game game) {
 		this.game = game;
-		
+
 		// Level-Sounds
 		minim = new Minim(this.game.app);
-		playerLevelTheme =  minim.loadFile(this.game.DEFAULT_SOUNDPATH + "groove.mp3");
-		playerHeroJump = minim.loadFile(this.game.DEFAULT_SOUNDPATH + "jumpsound.mp3");
-		playerHeroRun = minim.loadFile(this.game.DEFAULT_SOUNDPATH + "jumpsound.mp3");
-		playerCreditPoints =  minim.loadFile(this.game.DEFAULT_SOUNDPATH + "groove.mp3");
-			
+		playerLevelTheme = minim.loadFile(this.game.DEFAULT_SOUNDPATH
+				+ "235349__dambient__8-bit-loop.mp3");
+		playerHeroJump = minim.loadFile(this.game.DEFAULT_SOUNDPATH
+				+ "jumpsound.mp3");
+		playerHeroRun = minim.loadFile(this.game.DEFAULT_SOUNDPATH
+				+ "jumpsound.mp3");
+		playerCreditPoints = minim.loadFile(this.game.DEFAULT_SOUNDPATH
+				+ "66079__calmarius__1up.wav");
+
 		// Logo, Background, Kollision etc.
 		playerLevelTheme.loop();
 		this.logoImage = this.game.app.loadImage(game.DEFAULT_IMAGEPATH
@@ -146,7 +152,7 @@ public class Level {
 
 		// Mission 2 - Marwin
 		tmpMissions = new ArrayList<Mission>();
-		
+
 		// Frage 1
 		tmpAnswers = new ArrayList<String>();
 		answerKey = new ArrayList<Integer>();
@@ -162,7 +168,7 @@ public class Level {
 		tmpMissions.add(new Mission(game, 5, "white.png", 230, 300, 100, 100,
 				3, tmpMissionText, tmpQuestion, tmpSolvedText,
 				tmpNotSolvedText, tmpAnswers, answerKey));
-		
+
 		// Frage 2
 		tmpAnswers = new ArrayList<String>();
 		answerKey = new ArrayList<Integer>();
@@ -178,7 +184,7 @@ public class Level {
 		tmpMissions.add(new Mission(game, 5, "white.png", 230, 300, 100, 100,
 				3, tmpMissionText, tmpQuestion, tmpSolvedText,
 				tmpNotSolvedText, tmpAnswers, answerKey));
-		
+
 		// Frage 3
 		tmpAnswers = new ArrayList<String>();
 		answerKey = new ArrayList<Integer>();
@@ -318,7 +324,7 @@ public class Level {
 				false));
 
 		// Mission 4 - Johannes
-		//Frage 1
+		// Frage 1
 		tmpMissions = new ArrayList<Mission>();
 		tmpAnswers = new ArrayList<String>();
 		answerKey = new ArrayList<Integer>();
@@ -334,7 +340,7 @@ public class Level {
 		tmpMissions.add(new Mission(game, 5, "white.png", 230, 300, 100, 100,
 				3, tmpMissionText, tmpQuestion, tmpSolvedText,
 				tmpNotSolvedText, tmpAnswers, answerKey));
-		
+
 		// Frage 2
 		tmpAnswers = new ArrayList<String>();
 		answerKey = new ArrayList<Integer>();
@@ -354,7 +360,7 @@ public class Level {
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "johannes.png", 64, 42, 6100, this.game.GROUND_LEVEL, 2,
 				true, tmpMissions));
-		
+
 		// Objekte
 		lvlObjects.add(new LvlObject(this.game, this.game.DEFAULT_IMAGEPATH
 				+ "emoji/postbox.png", 35, 36, 6500, this.game.GROUND_LEVEL, 2,
@@ -386,7 +392,7 @@ public class Level {
 		tmpAnswers.add("[2] Quellen und Credits ansehen");
 		tmpMissionText = "Super! Du hast es geschafft und dabei #CP# Credit Points gesammelt.";
 		tmpQuestion = "\nWähle eine der Optionen:";
-		tmpSolvedText = "\nEin Projekt von Tim Landskron, Marwin Wiegard,\nSarah-Maria Rostalski und Johannes Nolte.\n\nEmojis von https://github.com/twitter/twemoji (CC-BY 4.0).\n\nDrücke eine Pfeil-Taste zum Neustart.";
+		tmpSolvedText = "\nEin Projekt von Tim Landskron, Marwin Wiegard,\nSarah-Maria Rostalski und Johannes Nolte.\n\nEmojis von https://github.com/twitter/twemoji (CC-BY 4.0).\nSounds und Musik von freesound.org\n\nDrücke eine Pfeil-Taste zum Neustart.";
 		tmpNotSolvedText = "Bitte drücke eine Pfeiltaste um das Spiel neuzustarten.";
 		tmpMissions.add(new Mission(game, 0, "white.png", 230, 520, 100, 100,
 				3, tmpMissionText, tmpQuestion, tmpSolvedText,
@@ -427,6 +433,25 @@ public class Level {
 
 		inMission = false;
 
+		// Musik zeichnen
+		if (playerLevelTheme.isMuted() && this.game.keyboard[9]
+				&& this.delay == 0) {
+			playerLevelTheme.unmute();
+			this.delay = this.delayTime;
+		} else if (this.game.keyboard[9] && delay == 0) {
+			playerLevelTheme.mute();
+			this.delay = this.delayTime;
+		}
+
+		this.game.app.textSize(14);
+		String mutedText = "an";
+		if (playerLevelTheme.isMuted()) {
+			mutedText = "aus";
+		}
+		this.game.app.text("Musik [m]: " + mutedText, 500,
+				48, 2);
+		this.game.app.fill(0, 0, 0);
+
 		// Objekte zeichnen
 		for (LvlObject lvlObject : this.lvlObjects) {
 			lvlObject.draw();
@@ -449,6 +474,14 @@ public class Level {
 		// Funktion für Bewegungen im Level
 		if (inMission == false) {
 			this.levelMovements();
+		} else {
+			this.hero.isJumped = false;
+			this.hero.y = this.game.GROUND_LEVEL;
+		}
+
+		// Verzögerung (Musik an/aus)
+		if (this.delay > 0) {
+			delay--;
 		}
 	}
 
@@ -498,9 +531,9 @@ public class Level {
 				&& (this.game.keyboard[0] || this.game.keyboard[1])) {
 			this.hero.states[3] = false;
 			this.hero.delay++;
-			
+
 			// Run-Sound
-			//playerHeroRun.play();
+			// playerHeroRun.play();
 		} else {
 			this.hero.states[3] = true;
 		}
@@ -511,7 +544,7 @@ public class Level {
 			// steht
 			if (this.hero.y == this.game.GROUND_LEVEL || this.hero.states[2]) {
 				this.hero.isJumped = true;
-				
+
 				// Jump-Sound
 				playerHeroJump.rewind();
 				playerHeroJump.play();

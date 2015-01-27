@@ -43,7 +43,7 @@ public class HsrwRunner extends PApplet {
 	}
 
 	public void draw() {
-		frameRate(36);
+		frameRate(32);
 		background(255);
 		
 		try {

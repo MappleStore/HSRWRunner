@@ -19,8 +19,8 @@ public class Game {
 
 	// Spiel starten
 	public Game(PApplet parentApplet) {
-		// Rechts, Links, Oben, Unten, 1, 2, 3, 4, Enter
-		this.keyboard = new boolean[9];
+		// Rechts, Links, Oben, Unten, 1, 2, 3, 4, Enter, m
+		this.keyboard = new boolean[10];
 		this.app = parentApplet;
 	}
 
@@ -32,6 +32,7 @@ public class Game {
 	// Level restart
 	public void reloadLevel() {
 		sumCreditPoints = 0;
+		this.hsrwLvl.playerLevelTheme.close();
 		this.hsrwLvl = new Level(this);
 	}
 
@@ -65,6 +66,9 @@ public class Game {
 				|| this.app.keyCode == PConstants.RETURN) {
 			this.keyboard[8] = true;
 		}
+		if (this.app.keyCode == 77 || this.app.keyCode == 109) {
+			this.keyboard[9] = true;
+		}
 	}
 
 	// Nicht mehr gedrückte Tasten in Array setzen
@@ -96,6 +100,9 @@ public class Game {
 		if (this.app.keyCode == PConstants.ENTER
 				|| this.app.keyCode == PConstants.RETURN) {
 			this.keyboard[8] = false;
+		}
+		if (this.app.keyCode == 77 || this.app.keyCode == 109) {
+			this.keyboard[9] = false;
 		}
 	}
 

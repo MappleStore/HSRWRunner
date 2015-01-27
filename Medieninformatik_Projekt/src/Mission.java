@@ -25,10 +25,10 @@ public class Mission {
 	int creditPoints = 5;
 	final int FONTSIZE = 14;
 
-	public Mission(Game game, int creditPoints, String texturePath, int height, int width, int x,
-			int y, int z, String missionText, String questionText,
-			String solvedText, String notSolvedText, ArrayList<String> answers,
-			ArrayList<Integer> answerKey) {
+	public Mission(Game game, int creditPoints, String texturePath, int height,
+			int width, int x, int y, int z, String missionText,
+			String questionText, String solvedText, String notSolvedText,
+			ArrayList<String> answers, ArrayList<Integer> answerKey) {
 		this.game = game;
 		this.creditPoints = creditPoints;
 		this.isPlayed = false;
@@ -109,6 +109,12 @@ public class Mission {
 					}
 				}
 
+				// Spiele CPs-Sound ab
+				if (this.isSolved) {
+					this.game.hsrwLvl.playerCreditPoints.rewind();
+					this.game.hsrwLvl.playerCreditPoints.play();
+				}
+
 				this.isCompleted = true;
 			} else if (this.answerKey.size() == 0) {
 				this.isCompleted = true;
@@ -116,14 +122,15 @@ public class Mission {
 
 		} else if (this.isCompleted) {
 			// Delay für Info-Missionen
-			if(this.isDelayed == false && this.answerKey.size() == 0) {
-				this.game.app.delay(2000);
+			if (this.isDelayed == false && this.answerKey.size() == 0) {
+				this.game.hsrwLvl.delay = this.game.hsrwLvl.delayTime;
 				this.game.keyboard = new boolean[this.game.keyboard.length];
 				this.isDelayed = true;
 			}
-			
-			if (this.game.keyboard[0] || this.game.keyboard[1]
-					|| this.game.keyboard[2] || this.game.keyboard[8]) {
+
+			if ((this.game.keyboard[0] || this.game.keyboard[1]
+					|| this.game.keyboard[2] || this.game.keyboard[8])
+					&& this.game.hsrwLvl.delay == 0) {
 
 				this.isPlayed = true;
 
