@@ -74,7 +74,7 @@ public class Level {
 		tmpQuestion = null;
 		tmpSolvedText = null;
 		tmpNotSolvedText = null;
-		tmpMissions.add(new Mission(game, 5, "white.png", 230, 530, 100, 100,
+		tmpMissions.add(new Mission(game, 5, "white_blue.png", 230, 530, 100, 100,
 				3, tmpMissionText, tmpQuestion, tmpSolvedText,
 				tmpNotSolvedText, tmpAnswers, answerKey));
 		// Startflagge
@@ -117,7 +117,7 @@ public class Level {
 		tmpQuestion = "Was ist meine Lieblingsfarbe?";
 		tmpSolvedText = "Gut geraten!\n5 CPs für dich.";
 		tmpNotSolvedText = "Ernsthaft?\nKeine CPs für dich!";
-		tmpMissions.add(new Mission(game, 5, "white.png", 200, 300, 100, 100,
+		tmpMissions.add(new Mission(game, 5, "white_blue.png", 200, 300, 100, 100,
 				3, tmpMissionText, tmpQuestion, tmpSolvedText,
 				tmpNotSolvedText, tmpAnswers, answerKey));
 		tmpAnswers = new ArrayList<String>();
@@ -131,7 +131,7 @@ public class Level {
 		tmpQuestion = "Was ist mein Hobby?";
 		tmpSolvedText = "Gut geraten!\n5 CPs für dich.";
 		tmpNotSolvedText = "Ernsthaft?\nKeine CPs für dich!";
-		tmpMissions.add(new Mission(game, 5, "white.png", 200, 300, 100, 100,
+		tmpMissions.add(new Mission(game, 5, "white_blue.png", 200, 300, 100, 100,
 				3, tmpMissionText, tmpQuestion, tmpSolvedText,
 				tmpNotSolvedText, tmpAnswers, answerKey));
 
@@ -165,7 +165,7 @@ public class Level {
 		tmpQuestion = "Wer hat auf YouTube den\nMarienkäfer \"Marvin\" erfunden?";
 		tmpSolvedText = "Ich heiße Marwin!\n5 CPs an den Marienkäfer.";
 		tmpNotSolvedText = "Ist das so?\nKeine extra CPs für dich!";
-		tmpMissions.add(new Mission(game, 5, "white.png", 230, 300, 100, 100,
+		tmpMissions.add(new Mission(game, 5, "white_blue.png", 230, 300, 100, 100,
 				3, tmpMissionText, tmpQuestion, tmpSolvedText,
 				tmpNotSolvedText, tmpAnswers, answerKey));
 
@@ -181,7 +181,7 @@ public class Level {
 		tmpQuestion = "Kannst du erraten welche Konsole?";
 		tmpSolvedText = "Goldrichtig, 5 CPs!";
 		tmpNotSolvedText = "Ich bin enttäuscht!\nLeider falsch.";
-		tmpMissions.add(new Mission(game, 5, "white.png", 230, 300, 100, 100,
+		tmpMissions.add(new Mission(game, 5, "white_blue.png", 230, 300, 100, 100,
 				3, tmpMissionText, tmpQuestion, tmpSolvedText,
 				tmpNotSolvedText, tmpAnswers, answerKey));
 
@@ -196,7 +196,7 @@ public class Level {
 		tmpQuestion = "Kann ich dir helfen?";
 		tmpSolvedText = "Klar, hier hast du 5 CPs.";
 		tmpNotSolvedText = "Ich heiße nicht so.";
-		tmpMissions.add(new Mission(game, 5, "white.png", 230, 300, 100, 100,
+		tmpMissions.add(new Mission(game, 5, "white_blue.png", 230, 300, 100, 100,
 				3, tmpMissionText, tmpQuestion, tmpSolvedText,
 				tmpNotSolvedText, tmpAnswers, answerKey));
 
@@ -276,7 +276,7 @@ public class Level {
 		tmpQuestion = "Welchen Film habe ich aber nicht\nim Regal stehen?";
 		tmpSolvedText = "5 filmreife CPs!";
 		tmpNotSolvedText = "Keine CPs, kein Oscar.";
-		tmpMissions.add(new Mission(game, 5, "white.png", 200, 300, 100, 100,
+		tmpMissions.add(new Mission(game, 5, "white_blue.png", 200, 300, 100, 100,
 				3, tmpMissionText, tmpQuestion, tmpSolvedText,
 				tmpNotSolvedText, tmpAnswers, answerKey));
 
@@ -333,7 +333,7 @@ public class Level {
 		tmpQuestion = "Kannst du mir sagen, wer kein\nKölner ist?";
 		tmpSolvedText = "Richtig. Hennes ist das Maskottchen\ndes FC, ein Geißbock, Tünnes und\nSchäl sind Figuren aus dem Kölschen\nHännesschen Theater.";
 		tmpNotSolvedText = "Falsch, alle sind Kölner.\nHennes ist das Maskottchen des FC,\nein Geißbock, Tünnes und Schäl\nsind Figuren aus dem Kölschen\nHännesschen Theater.";
-		tmpMissions.add(new Mission(game, 5, "white.png", 230, 300, 100, 100,
+		tmpMissions.add(new Mission(game, 5, "white_blue.png", 230, 300, 100, 100,
 				3, tmpMissionText, tmpQuestion, tmpSolvedText,
 				tmpNotSolvedText, tmpAnswers, answerKey));
 
@@ -349,7 +349,7 @@ public class Level {
 		tmpQuestion = "Kannst du mir sagen, wer Hennes ist?";
 		tmpSolvedText = "Richtig. Hennes ist ein echter Geißbock (aktuell\nHennes VIII) und das Maskottchen des FC.\n5 CPs für dich!";
 		tmpNotSolvedText = "Leider falsch. Hennes ist das Maskottchen des FC,\nein Geißbock. Keine CPs für dich.";
-		tmpMissions.add(new Mission(game, 5, "white.png", 230, 400, 100, 100,
+		tmpMissions.add(new Mission(game, 5, "white_blue.png", 230, 400, 100, 100,
 				3, tmpMissionText, tmpQuestion, tmpSolvedText,
 				tmpNotSolvedText, tmpAnswers, answerKey));
 
@@ -384,11 +384,11 @@ public class Level {
 		answerKey.add(2);
 		tmpAnswers.add("[1] Level neustarten");
 		tmpAnswers.add("[2] Quellen und Credits ansehen");
-		tmpMissionText = "Super! Du hast es geschafft und dabei #CP# Credit Points gesammelt.";
-		tmpQuestion = "\nWähle eine der Optionen:";
-		tmpSolvedText = "Ein Projekt von Tim Landskron, Marwin Wiegard, Sarah-Maria Rostalski\nund Johannes Nolte (Einführung in die Medieninformatik WS14/15).\n\nEmojis von https://github.com/twitter/twemoji (CC-BY 4.0).\nSound-Quellen:\nhttp://freesound.org/people/dAmbient/sounds/235349/\nhttp://freesound.org/people/Calmarius/sounds/66079/\nhttp://freesound.org/people/soundnimja/sounds/173326/\n\nDrücke eine Pfeil-Taste zum Neustart.";
+		tmpMissionText = "Super! Du hast es geschafft und dabei #CP# Credit Points\ngesammelt.";
+		tmpQuestion = "\nWähle eine Option:";
+		tmpSolvedText = "Ein Projekt von Tim Landskron, Marwin Wiegard,\nSarah-Maria Rostalski und Johannes Nolte\n(Einführung in die Medieninformatik WS14/15).\n\nEmojis von https://github.com/twitter/twemoji (CC-BY 4.0).\nSound-Quellen:\nhttp://freesound.org/people/dAmbient/sounds/235349/\nhttp://freesound.org/people/Calmarius/sounds/66079/\nhttp://freesound.org/people/soundnimja/sounds/173326/\n\nDrücke eine Pfeil-Taste zum Neustart.";
 		tmpNotSolvedText = "Bitte drücke eine Pfeiltaste um das Spiel neuzustarten.";
-		tmpMissions.add(new Mission(game, 0, "white.png", 230, 520, 100, 100,
+		tmpMissions.add(new Mission(game, 0, "white_blue_finish.png", 254, 520, 100, 100,
 				3, tmpMissionText, tmpQuestion, tmpSolvedText,
 				tmpNotSolvedText, tmpAnswers, answerKey));
 
