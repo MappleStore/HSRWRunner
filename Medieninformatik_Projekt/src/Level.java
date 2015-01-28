@@ -386,7 +386,7 @@ public class Level {
 		tmpAnswers.add("[2] Quellen und Credits ansehen");
 		tmpMissionText = "Super! Du hast es geschafft und dabei #CP# Credit Points gesammelt.";
 		tmpQuestion = "\nWähle eine der Optionen:";
-		tmpSolvedText = "Ein Projekt von Tim Landskron, Marwin Wiegard, Sarah-Maria Rostalski\nund Johannes Nolte (Einführung in die Medieninformatik WS14/15).\n\nEmojis von https://github.com/twitter/twemoji (CC-BY 4.0).\nSound-Quellen:\nhttp://freesound.org/people/dAmbient/sounds/235349/\nhttp://freesound.org/people/Calmarius/sounds/66079/und\nhttp://freesound.org/people/soundnimja/sounds/173326/\n\nDrücke eine Pfeil-Taste zum Neustart.";
+		tmpSolvedText = "Ein Projekt von Tim Landskron, Marwin Wiegard, Sarah-Maria Rostalski\nund Johannes Nolte (Einführung in die Medieninformatik WS14/15).\n\nEmojis von https://github.com/twitter/twemoji (CC-BY 4.0).\nSound-Quellen:\nhttp://freesound.org/people/dAmbient/sounds/235349/\nhttp://freesound.org/people/Calmarius/sounds/66079/\nhttp://freesound.org/people/soundnimja/sounds/173326/\n\nDrücke eine Pfeil-Taste zum Neustart.";
 		tmpNotSolvedText = "Bitte drücke eine Pfeiltaste um das Spiel neuzustarten.";
 		tmpMissions.add(new Mission(game, 0, "white.png", 230, 520, 100, 100,
 				3, tmpMissionText, tmpQuestion, tmpSolvedText,
