@@ -1,10 +1,7 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-
-import ddf.minim.AudioInput;
-import ddf.minim.AudioPlayer;
-import ddf.minim.Minim;
+import javax.swing.ImageIcon;
 import processing.core.PApplet;
 
 public class HsrwRunner extends PApplet {
@@ -19,10 +16,11 @@ public class HsrwRunner extends PApplet {
 	}
 
 	public void setup() {
-		frame.setTitle("HSRWRunner v1.0");
-		// ImageIcon titlebaricon = new ImageIcon(loadBytes("myicon.gif"));
-		// frame.setIconImage(titlebaricon.getImage());
+		frame.setTitle("HSRWRunner");
 		this.game = new Game(this);
+		ImageIcon titlebaricon = new ImageIcon(
+				loadBytes(this.game.DEFAULT_IMAGEPATH + "hsrw-60.png"));
+		frame.setIconImage(titlebaricon.getImage());
 		size(game.WINDOW_WIDTH, game.WINDOW_HEIGHT, P3D);
 		textureMode(NORMAL);
 
@@ -45,7 +43,7 @@ public class HsrwRunner extends PApplet {
 	public void draw() {
 		frameRate(32);
 		background(255);
-		
+
 		try {
 			this.game.hsrwLvl.drawLevel();
 		} catch (Exception ex) {
